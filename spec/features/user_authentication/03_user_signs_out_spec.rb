@@ -8,10 +8,10 @@ RSpec.describe "user signs in" , %Q(
 
   # Acceptance Criteria:
 
-  # [] I must be logged in
-  # [] When I select the Log Out link, my user is logged out
-  # [] I am redirected to the home page
-  # [] I see a message letting me know that I have been logged out
+  # [x] I must be logged in
+  # [x] When I select the Log Out link, my user is logged out
+  # [x] I am redirected to the home page
+  # [x] I see a message letting me know that I have been logged out
 
   scenario "user signs out successfully" do
 

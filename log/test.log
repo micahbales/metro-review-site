@@ -1,0 +1,4 @@
+  [1m[35m (122.2ms)[0m  [1m[35mDROP DATABASE IF EXISTS "metro-review-site_test"[0m
+  [1m[35m (328.8ms)[0m  [1m[35mCREATE DATABASE "metro-review-site_test" ENCODING = 'unicode'[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m

@@ -18,6 +18,7 @@ group :development, :test do
   gem 'valid_attribute'
   gem 'listen'
   gem 'dotenv-rails'
+  gem 'launchy'
 end
 
 group :test do

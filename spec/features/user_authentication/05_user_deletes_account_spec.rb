@@ -17,12 +17,7 @@ RSpec.describe "user deletes account" , %Q(
     user = FactoryGirl.create(:user)
 
     visit "/"
- ### feel like there should be a better way to do this:
-    click_link "Sign In"
-    fill_in("Email", with: "bob@thebuilder.com")
-    fill_in("Password", with: "password")
-    click_button "Log In"
- ###
+    login_user
     click_link "Edit Account"
     click_button("Cancel My Account")
 

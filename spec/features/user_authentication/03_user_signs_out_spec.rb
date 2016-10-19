@@ -18,12 +18,7 @@ RSpec.describe "user signs in" , %Q(
     user = FactoryGirl.create(:user)
 
     visit "/"
- ### feel like there should be a better way to do this:
-    click_link "Sign In"
-    fill_in("Email", with: "bob@thebuilder.com")
-    fill_in("Password", with: "password")
-    click_button "Log In"
- ###
+    login_user
     click_link "Log Out"
     expect(page).to_not have_content("Log Out")
     expect(page).to_not have_content("Edit Account")

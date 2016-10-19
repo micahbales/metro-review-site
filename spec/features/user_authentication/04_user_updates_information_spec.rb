@@ -18,12 +18,7 @@ RSpec.describe "user updates information" , %Q(
     user = FactoryGirl.create(:user)
 
     visit "/"
- ### feel like there should be a better way to do this:
-    click_link "Sign In"
-    fill_in("Email", with: "bob@thebuilder.com")
-    fill_in("Password", with: "password")
-    click_button "Log In"
- ###
+    login_user
     click_link "Edit Account"
     fill_in("Password", with: "bobby123")
     fill_in("Password Confirmation", with: "bobby123")

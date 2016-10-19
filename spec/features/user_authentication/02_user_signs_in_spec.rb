@@ -17,10 +17,7 @@ RSpec.feature "user signs in" , %Q(
     user = FactoryGirl.create(:user)
 
     visit "/"
-    click_link "Sign In"
-    fill_in("Email", with: "bob@thebuilder.com")
-    fill_in("Password", with: "password")
-    click_button "Log In"
+    login_user
     expect(page).to have_content("Log Out")
     expect(page).to have_content("Edit Account")
     expect(page).to have_content("You have signed in successfully.")
@@ -30,10 +27,7 @@ RSpec.feature "user signs in" , %Q(
   scenario "user enters invalid information" do
 
     visit "/"
-    click_link "Sign In"
-    fill_in("Email", with: "bobby.com")
-    fill_in("Password", with: "password")
-    click_button "Log In"
+    login_user
 
     expect(page).to_not have_content("Log Out")
     expect(page).to_not have_content("Edit Account")

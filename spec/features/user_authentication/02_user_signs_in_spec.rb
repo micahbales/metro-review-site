@@ -8,9 +8,9 @@ RSpec.feature "user signs in" , %Q(
 
   # Acceptance Criteria:
 
-  # [] I must enter a valid email address and password
-  # [] If I do, then I am logged in & see a confirmation message
-  # [] If I do not, then I am not logged in and see an error message
+  # [x] I must enter a valid email address and password
+  # [x] If I do, then I am logged in & see a confirmation message
+  # [x] If I do not, then I am not logged in and see an error message
 
   scenario "user successfully signs in" do
 

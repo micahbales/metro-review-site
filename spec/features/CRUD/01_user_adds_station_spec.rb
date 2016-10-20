@@ -8,12 +8,15 @@ RSpec.feature "user adds station" , %Q(
 
   # Acceptance Criteria:
 
-  # [] I must be an authenticated user
-  # [] I must specify a station name, line, and state
-  # [] I may optionally provide a station description
-  # [] I may optionally specify whether a station has parking
-  # [] If I enter the required information and submit, the station is created
-  # [] If station is created, I am redirected to the new station page
+  # [x] I must be an authenticated user
+  # [x] I must specify a station name, line, and state
+  # [x] I may optionally provide a station description
+  # [x] I may optionally specify whether a station has parking
+  # [x] If I enter the required information and submit, the station is created
+  # [x] If station is created, I am redirected to the new station page
+  #     and see an alert informing me that my station has been created
+  # [x] If station is not created, I remain on the create-station page
+  #     and see an alert informing me that my statino has not been created 
 
 
 

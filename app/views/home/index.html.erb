@@ -3,7 +3,7 @@
 <% if @stations %>
   <ul>
     <% @stations.each do |station| %>
-      <li><%= station.name %> Station</li>
+      <li><%= link_to "#{station.name} Station", station_path(station) %></li>
     <% end %>
   </ul>
 <% end %>

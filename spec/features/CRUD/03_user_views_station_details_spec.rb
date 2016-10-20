@@ -8,21 +8,35 @@ RSpec.feature "user views station details" , %Q(
 
   # Acceptance Criteria:
 
-  # [] I may be an anonymous or authenticated user
-  # [] When I visit the home page and view the list of stations
+  # [x] I may be an anonymous or authenticated user
+  # [x] When I visit the home page and view the list of stations
   #    I can click on an individual station to see more details
-  # [] Visiting a station's details page, I can see that station's
+  # [x] Visiting a station's details page, I can see that station's
   #    description and parking info, if provided
 
-  xscenario "anonymous user views station details" do
+  scenario "anonymous user views station details" do
 
     station = FactoryGirl.create(:station)
 
     visit "/"
-    click_link("Benning Road")
+    click_link("Benning Road Station")
 
     expect(page).to have_content("Benning Road Station")
     expect(page).to have_content("The last stop in Eastern DC")
-    expect(page).to have_content("Parking? No")
+    expect(page).to have_content("Parking? Yes")
+  end
+
+  scenario "authenticated user views station details" do
+
+    station = FactoryGirl.create(:station)
+    user = FactoryGirl.create(:user)
+
+    visit "/"
+    login_user
+    click_link("Benning Road Station")
+
+    expect(page).to have_content("Benning Road Station")
+    expect(page).to have_content("The last stop in Eastern DC")
+    expect(page).to have_content("Parking? Yes")
   end
 end

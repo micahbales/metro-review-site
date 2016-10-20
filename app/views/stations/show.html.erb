@@ -6,4 +6,8 @@
 
 <h3>Description: <%= @station.description %></h3>
 
-<h3>Parking? <% if @station.line %> Yes <% else %> No <% end %> </h3>
+<h3>Parking? <% if @station.parking %> Yes <% else %> No <% end %> </h3>
+
+<% if user_signed_in? %>
+  <%= link_to 'Update Station', edit_station_path %>
+<% end %>

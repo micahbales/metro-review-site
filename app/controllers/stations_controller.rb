@@ -1,4 +1,6 @@
 class StationsController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
+
   def index
     redirect_to root_path
   end
@@ -22,6 +24,22 @@ class StationsController < ApplicationController
 
   def show
     @station = Station.find(params[:id])
+  end
+
+  def edit
+    @station = Station.find(params[:id])
+  end
+
+  def update
+    @station = Station.find(params[:id])
+
+    if @station.update(station_params)
+      flash[:error] = "Your station has been successfully updated!"
+      redirect_to @station
+    else
+      flash[:error] = "Your station could not be updated. Please provide all required information."
+      render :edit
+    end
   end
 
   private

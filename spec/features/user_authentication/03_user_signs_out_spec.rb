@@ -1,6 +1,6 @@
-require 'spec_helper'
+require 'rails_helper'
 
-RSpec.describe "user signs in" , %Q(
+RSpec.feature "user signs in" , %Q(
   As an authenticated user
   I want to sign out
   So that no one else can post items or reviews on my behalf

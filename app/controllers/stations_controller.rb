@@ -42,6 +42,13 @@ class StationsController < ApplicationController
     end
   end
 
+  def destroy
+    @station = Station.find(params[:id])
+    @station.destroy
+    flash[:error] = "Station deleted from site"
+    redirect_to root_path
+  end
+
   private
 
   def station_params

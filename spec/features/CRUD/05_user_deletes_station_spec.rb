@@ -8,21 +8,21 @@ RSpec.feature "user deletes station" , %Q(
 
   # Acceptance Criteria:
 
-  # [] I must be an authenticated user
-  # [] When I view a station's details, I have an option to edit station info
-  # [] In addition to editing station info, I can also delete the station
-  # [] If I select to delete the station, the station is deleted from the site
+  # [x] I must be an authenticated user
+  # [x] When I view a station's details, I have an option to edit station info
+  # [x] While on the station's edit page, I have an option to delete the station
+  # [x] If I select to delete the station, I am alerted it has been deleted
 
-  xscenario "authenticated user deletes station" do
+  scenario "authenticated user deletes station" do
 
     user = FactoryGirl.create(:user)
     station = FactoryGirl.create(:station)
 
     visit "/"
     login_user
-    click_link("Benning Road")
-    click_button("Update This Station")
-    click_button("Delete Station")
+    click_link("Benning Road Station")
+    click_link("Update Station")
+    click_link("Delete Station")
 
     expect(page).to_not have_content("Benning Road")
     expect(page).to have_content("Station deleted from site")

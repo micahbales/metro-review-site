@@ -20,3 +20,7 @@
   <%= f.submit 'Update Station' %>
 
 <% end %>
+
+<% if user_signed_in? %>
+  <%= link_to 'Delete Station', station_path(@station), method: :delete %>
+<% end %>

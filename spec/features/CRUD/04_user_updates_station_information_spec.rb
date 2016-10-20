@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 RSpec.feature "user updates station info" , %Q(
   As an authenticated user
@@ -38,7 +38,7 @@ RSpec.feature "user updates station info" , %Q(
 
     visit "/"
     click_link("Benning Road")
-    
+
     expect(page).to have_content("Benning Road Station")
     expect(page).to_not have_content("Update This Station")
   end

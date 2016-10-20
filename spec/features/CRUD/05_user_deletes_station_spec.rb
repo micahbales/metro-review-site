@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 RSpec.feature "user deletes station" , %Q(
   As an authenticated user

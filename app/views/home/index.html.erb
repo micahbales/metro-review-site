@@ -1,1 +1,4 @@
 <h1>Metro Review Site</h1>
+<% if user_signed_in? %>
+  <%= link_to 'Add Station', new_station_path %>
+<% end %>

@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 RSpec.feature "user views list of stations" , %Q(
   As an anonymous user

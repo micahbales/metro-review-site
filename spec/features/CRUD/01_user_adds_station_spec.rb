@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 RSpec.feature "user adds station" , %Q(
   As an authenticated user
@@ -15,7 +15,9 @@ RSpec.feature "user adds station" , %Q(
   # [] If I enter the required information and submit, the station is created
   # [] If station is created, I am redirected to the new station page
 
-  xscenario "authenticated user successfully adds station" do
+
+
+  scenario "authenticated user successfully adds station" do
 
     user = FactoryGirl.create(:user)
 
@@ -25,21 +27,26 @@ RSpec.feature "user adds station" , %Q(
     fill_in("Station Name", with: "Benning Road")
     select("Blue", from: "Line")
     select("DC", from: "State")
+    fill_in("Description", with: "Great little station!")
+    check("Parking?")
+
     click_button("Add Station")
 
     expect(page).to have_content("Benning Road Station")
     expect(page).to have_content("Your station has been successfully added!")
+    expect(page).to have_content("Description: Great little station!")
+    expect(page).to have_content("Parking? Yes")
   end
 
-  xscenario "authenticated user omits required information" do
+  scenario "authenticated user omits required information" do
 
     user = FactoryGirl.create(:user)
 
     visit "/"
     login_user
     click_link("Add Station")
-    fill_in("Station Name", with: "Benning Road")
     select("Blue", from: "Line")
+    select("DC", from: "State")
     click_button("Add Station")
 
     expect(page).to have_content("Add Station")

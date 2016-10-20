@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 RSpec.feature "user signs in" , %Q(
   As an unauthenticated user

@@ -16,8 +16,7 @@ RSpec.feature "user adds station" , %Q(
   # [x] If station is created, I am redirected to the new station page
   #     and see an alert informing me that my station has been created
   # [x] If station is not created, I remain on the create-station page
-  #     and see an alert informing me that my statino has not been created 
-
+  #     and see an alert informing me that my statino has not been created
 
 
   scenario "authenticated user successfully adds station" do
@@ -39,6 +38,8 @@ RSpec.feature "user adds station" , %Q(
     expect(page).to have_content("Your station has been successfully added!")
     expect(page).to have_content("Description: Great little station!")
     expect(page).to have_content("Parking? Yes")
+
+    DatabaseCleaner.clean
   end
 
   scenario "authenticated user omits required information" do
@@ -54,5 +55,7 @@ RSpec.feature "user adds station" , %Q(
 
     expect(page).to have_content("Add Station")
     expect(page).to have_content("Your station could not be created. Please provide all required information.")
+
+    DatabaseCleaner.clean
   end
 end

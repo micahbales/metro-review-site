@@ -18,5 +18,7 @@ RSpec.feature "user views list of stations" , %Q(
     visit "/"
 
     expect(page).to have_content("Benning Road Station")
+
+    DatabaseCleaner.clean
   end
 end

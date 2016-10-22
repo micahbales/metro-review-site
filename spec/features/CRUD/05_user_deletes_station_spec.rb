@@ -26,5 +26,7 @@ RSpec.feature "user deletes station" , %Q(
 
     expect(page).to_not have_content("Benning Road")
     expect(page).to have_content("Station deleted from site")
+
+    DatabaseCleaner.clean
   end
 end

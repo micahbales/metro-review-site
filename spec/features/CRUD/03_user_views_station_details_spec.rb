@@ -24,6 +24,8 @@ RSpec.feature "user views station details" , %Q(
     expect(page).to have_content("Benning Road Station")
     expect(page).to have_content("The last stop in Eastern DC")
     expect(page).to have_content("Parking? No")
+
+    DatabaseCleaner.clean
   end
 
   scenario "authenticated user views station details" do
@@ -38,5 +40,7 @@ RSpec.feature "user views station details" , %Q(
     expect(page).to have_content("Benning Road Station")
     expect(page).to have_content("The last stop in Eastern DC")
     expect(page).to have_content("Parking? No")
+
+    DatabaseCleaner.clean
   end
 end

@@ -8,6 +8,25 @@
 
 <h3>Parking? <% if @station.parking %> Yes <% else %> No <% end %> </h3>
 
+<h1>Add Review</h1>
+
+<%= form_for [@station, @review] do |f| %>
+  <%= f.label :title, "Title" %>
+  <%= f.text_field :title %>
+  <br />
+  <%= f.label :content, "Review" %>
+  <%= f.text_area :content %>
+  <br />
+  <%= f.submit 'Submit Review' %>
+<% end %>
+
+<h3>Reviews</h3>
+
+<% @reviews.each do |review| %>
+  <div><%= link_to review.title, edit_station_review_path(@station, review) %> </div>
+  <div><%= review.content %></div>
+<% end %>
+
 <% if user_signed_in? %>
-  <%= link_to 'Update Station', edit_station_path %>
+  <%= link_to 'Update Station', edit_station_path(@station) %>
 <% end %>

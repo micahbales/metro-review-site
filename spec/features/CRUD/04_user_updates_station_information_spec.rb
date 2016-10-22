@@ -35,6 +35,8 @@ RSpec.feature "user updates station info" , %Q(
     expect(page).to have_content("The administration has threatened to close this station, among others")
     expect(page).to have_content("Your station has been successfully updated!")
     expect(page).to have_content("Parking? No")
+
+    DatabaseCleaner.clean
   end
 
   scenario "authenticated user enters incomplete information" do
@@ -54,6 +56,8 @@ RSpec.feature "user updates station info" , %Q(
     expect(page).to have_content("Your station could not be updated. Please provide all required information.")
     expect(page).to_not have_content("Your station has been successfully updated!")
     expect(page).to have_content("Update Station")
+
+    DatabaseCleaner.clean
   end
 
   scenario "anonymous user cannot update station" do
@@ -65,5 +69,7 @@ RSpec.feature "user updates station info" , %Q(
 
     expect(page).to have_content("Benning Road Station")
     expect(page).to_not have_content("Update This Station")
+
+    DatabaseCleaner.clean
   end
 end

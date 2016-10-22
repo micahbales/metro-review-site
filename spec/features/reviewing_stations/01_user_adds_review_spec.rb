@@ -29,6 +29,8 @@ RSpec.feature "user adds review" , %Q(
     expect(page).to have_content("Just My Two Cents")
     expect(page).to have_content("Boy, this station stinks!")
     expect(page).to have_content("Your comment has been successfully created!")
+
+    DatabaseCleaner.clean
   end
 
   scenario "authenticated user submits review without content" do
@@ -40,5 +42,7 @@ RSpec.feature "user adds review" , %Q(
 
     expect(page).to_not have_content("Just My Two Cents")
     expect(page).to have_content("Please provide both a title and a review")
+
+    DatabaseCleaner.clean
   end
 end

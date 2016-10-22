@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :review do
-    title "My Opinion"
+    sequence(:title) { |n| "My Opinion #{n}"}
     content "This station is lovely, but it could use some cleaning up!"
-    station_id 1
+    association :station, :factory => :station
   end
 end

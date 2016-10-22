@@ -8,13 +8,20 @@ RSpec.feature "user views reviews" , %Q(
 
   # Acceptance Criteria:
 
-  # [] I may be anonymous user
-  # [] When I visit a station page, I see titles of all reviews
-  # [] I can click the title to view the full content of the review
+  # [x] I may be anonymous user
+  # [x] When I visit a station page, I see all reviews for that page
 
-  scenario "" do
-  end
+  let!(:station) { FactoryGirl.create(:station) }
+  let!(:review1) { FactoryGirl.create(:review, station: station) }
+  let!(:review2) { FactoryGirl.create(:review, station: station) }
 
-  scenario "" do
+  scenario "anonymous user views reviews" do
+    visit "/"
+    click_link station.name
+
+    expect(page).to have_content(review1.title)
+    expect(page).to have_content(review2.title)
+
+    DatabaseCleaner.clean
   end
 end

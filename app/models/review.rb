@@ -3,5 +3,5 @@ class Review < ApplicationRecord
   validates :content, presence: true
   validates :station_id, presence: true
 
-  belongs_to :station
+  belongs_to :station, optional: true
 end

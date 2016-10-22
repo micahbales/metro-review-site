@@ -21,8 +21,9 @@
 <% end %>
 
 <h3>Reviews</h3>
+
 <% @reviews.each do |review| %>
-  <div><%= review.title %></div>
+  <div><%= link_to review.title, edit_station_review_path(@station, review) %> </div>
   <div><%= review.content %></div>
 <% end %>
 

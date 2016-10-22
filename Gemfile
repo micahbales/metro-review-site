@@ -19,11 +19,11 @@ group :development, :test do
   gem 'valid_attribute'
   gem 'listen'
   gem 'dotenv-rails'
-  gem 'launchy'
+  gem 'launchy', require: false
 end
 
 group :test do
-  gem 'launchy', require: false
+  gem 'database_cleaner'
 end
 
 group :production do

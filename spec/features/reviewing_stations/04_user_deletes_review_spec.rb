@@ -9,7 +9,7 @@ RSpec.feature "user deletes review" , %Q(
   # Acceptance Criteria:
 
   # [] I must be an authenticated user
-  # [] When I visit a review's content page, there is an option to delete
+  # [] When I visit a review's update page, there is an option to delete
   # [] If I select delete, I am prompted to confirm that I want to delete
   # [] If I confirm deletion, I am informed that the review has been removed
 

@@ -8,14 +8,26 @@ RSpec.feature "user deletes review" , %Q(
 
   # Acceptance Criteria:
 
-  # [] I must be an authenticated user
-  # [] When I visit a review's update page, there is an option to delete
-  # [] If I select delete, I am prompted to confirm that I want to delete
-  # [] If I confirm deletion, I am informed that the review has been removed
+  # [x] I must be an authenticated user
+  # [x] When I visit a review's update page, there is an option to delete
+  # [x] I am informed that the review has been removed
 
-  scenario "" do
-  end
+  let!(:user) { FactoryGirl.create(:user) }
+  let!(:station) { FactoryGirl.create(:station) }
+  let!(:review1) { FactoryGirl.create(:review, station: station) }
 
-  scenario "" do
+  scenario "authenticated user deletes review" do
+
+    visit "/"
+    login_user
+    click_link(station.name)
+    click_link(review1.title)
+    click_link("Delete Review")
+
+    expect(page).to have_content("Review deleted.")
+    expect(page).to have_content(station.name)
+    expect(page).to_not have_content(review1.title)
+
+    DatabaseCleaner.clean
   end
 end

@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   resources :stations do
     resources :reviews
   end
+  resources :votes, only: [:create]
 end

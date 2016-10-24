@@ -9,23 +9,24 @@ RSpec.feature "authenticated user neutralizes vote on review" , %Q(
   # Acceptance Criteria:
 
   # [x] I must be an authenticated user
-  # [] When I click the vote button of a review I have already upvoted
+  # [x] When I click the vote button of a review I have already upvoted
   #    the total number of votes is reduced by one
 
   let!(:user) { FactoryGirl.create(:user) }
   let!(:station) { FactoryGirl.create(:station) }
   let!(:review1) { FactoryGirl.create(:review, station: station) }
 
-  xscenario "authenticated user upvotes review" do
+  scenario "authenticated user upvotes review" do
 
     visit "/"
     login_user
     click_link(station.name)
-    first('.upvote > button').click
-    first('.downvote > button').click
+    click_button("upvote-#{review1.id}")
+    click_button("downvote-#{review1.id}")
 
-    expect(page).to have_content('0')
-    expect(page).to have_content('-1')
+    expect(page).to have_content('User Rating: 0')
+    expect(page).to_not have_content('User Rating: -1')
+    expect(page).to_not have_content('User Rating: 1')
 
     DatabaseCleaner.clean
   end

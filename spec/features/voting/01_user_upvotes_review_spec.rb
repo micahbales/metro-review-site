@@ -27,17 +27,18 @@ RSpec.feature "user votes on review" , %Q(
     click_button("upvote-#{review1.id}")
 
     expect(page).to have_content('User Rating: 1')
-    expect(page).to have_content('+1')
 
     DatabaseCleaner.clean
   end
 
-  xscenario "unauthenticated user tries to upvote review" do
+  scenario "unauthenticated user tries to upvote review" do
 
     visit '/'
-    click_link(station.name)
+    click_link("#{station.name} Station")
+
 
     expect(page).to_not have_content('+')
+    expect(page).to have_content("Sign in to vote!")
 
     DatabaseCleaner.clean
   end

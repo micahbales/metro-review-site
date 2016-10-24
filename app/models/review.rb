@@ -8,7 +8,6 @@ class Review < ApplicationRecord
 
   def vote_total
     total = 0
-
     votes.each do |vote|
       total += vote.value
     end

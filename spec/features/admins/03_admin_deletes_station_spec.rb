@@ -12,14 +12,33 @@ RSpec.feature "admin deletes station" , %Q(
   # [] When I navigate to the station update page, I have an option to
   #    delete the station
 
+  let!(:user) { FactoryGirl.create(:user) }
+  let!(:admin) { FactoryGirl.create(:admin) }
+  let!(:station1) { FactoryGirl.create(:station) }
+  let!(:station2) { FactoryGirl.create(:station, name: "Anacostia") }
+
   scenario "admin deletes station" do
 
+    visit "/"
+    login_user
+    click_link("Benning Road Station")
+    click_link("Update Station")
+    click_link("Delete Station")
+
+    expect(page).to have_content("Anacostia Station")
+    expect(page).to_not have_content("Benning Road Station")
+    expect(page).to have_content("Station deleted!")
 
     DatabaseCleaner.clean
   end
 
   scenario "non-admin user cannot delete station" do
 
+    visit "/"
+    click_link("Benning Road Station")
+    click_link("Update Station")
+
+    expect(page).to_not have_content("Delete Station")
 
     DatabaseCleaner.clean
   end

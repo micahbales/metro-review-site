@@ -12,9 +12,20 @@ RSpec.feature "admin deletes review" , %Q(
   # [] When I view a station's reviews, each one gives me the option
   #    to delete it
 
+  let!(:user) { FactoryGirl.create(:user) }
+  let!(:admin) { FactoryGirl.create(:admin) }
+  let!(:station) { FactoryGirl.create(:station) }
+  let!(:review) { FactoryGirl.create(:review) }
+
   scenario "admin user deletes review" do
 
+    visit "/"
+    login_user
+    click_link("Benning Road Station")
+    click_link("review-delete-#{review.id}")
 
+    expect(page).to have_content("Review deleted!")
+    expect(page).to_not have_content("My Opinion 1")
 
     DatabaseCleaner.clean
   end

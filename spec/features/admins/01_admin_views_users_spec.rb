@@ -8,13 +8,12 @@ RSpec.feature "admin views all users" , %Q(
 
   # Acceptance Criteria:
 
-  # [] I must be an authenticated user with admin privileges
-  # [] When I visit the users list, I can see all registered users
+  # [x] I must be an authenticated user with admin privileges
+  # [x] When I visit the users list, I can see all registered users
 
-  let!(:user) { FactoryGirl.create(:user) }
-  let!(:admin) { FactoryGirl.create(:admin) }
-  let!(:user1) { FactoryGirl.create(:user) }
-  let!(:user2) { FactoryGirl.create(:user, first_name: James, last_name: Baldwin, email: "jimmyb@juno.com") }
+  let!(:admin) { FactoryGirl.create(:user, admin: true) }
+  let!(:user) { FactoryGirl.create(:user, first_name: "James",
+    last_name: "Baldwin", email: "jimmyb@juno.com") }
 
   scenario "admin visits users index" do
 

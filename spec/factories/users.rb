@@ -6,12 +6,4 @@ FactoryGirl.define do
     password "password"
     admin false
   end
-
-  factory :admin do
-    first_name "Micah"
-    last_name "Bales"
-    email "m@bales.com"
-    password "password"
-    admin true
-  end
 end

@@ -17,7 +17,7 @@ RSpec.feature "admin deletes user" , %Q(
   let!(:user1) { FactoryGirl.create(:user) }
   let!(:user2) { FactoryGirl.create(:user, first_name: James, last_name: Baldwin, email: "jimmyb@juno.com") }
 
-  scenario "admin deletes user" do
+  xscenario "admin deletes user" do
 
     visit "/"
     login_user

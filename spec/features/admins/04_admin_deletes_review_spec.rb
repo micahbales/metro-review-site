@@ -17,7 +17,7 @@ RSpec.feature "admin deletes review" , %Q(
   let!(:station) { FactoryGirl.create(:station) }
   let!(:review) { FactoryGirl.create(:review) }
 
-  scenario "admin user deletes review" do
+  xscenario "admin user deletes review" do
 
     visit "/"
     login_user
@@ -30,7 +30,7 @@ RSpec.feature "admin deletes review" , %Q(
     DatabaseCleaner.clean
   end
 
-  scenario "non-admin user cannot delete review" do
+  xscenario "non-admin user cannot delete review" do
 
 
     DatabaseCleaner.clean

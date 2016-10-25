@@ -45031,3 +45031,19 @@ Processing by HomeController#index as HTML
 Completed 200 OK in 17ms (Views: 15.3ms | ActiveRecord: 0.3ms)
 
 
+Started GET "/admin/users" for ::1 at 2016-10-25 16:50:27 -0400
+Processing by Admin::UsersController#index as HTML
+Redirected to http://localhost:3000/users/sign_in
+Filter chain halted as :authenticate_admin! rendered or redirected
+Completed 302 Found in 3ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2016-10-25 16:50:27 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (0.9ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (4.4ms)
+  Rendered layouts/_navigation.html.erb (0.7ms)
+Completed 200 OK in 27ms (Views: 18.1ms | ActiveRecord: 0.0ms)
+
+

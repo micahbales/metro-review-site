@@ -10,10 +10,6 @@ class ApplicationController < ActionController::Base
   end
 
   def authenticate_admin!
-    
-    # check first for current user
-    # check to see if user is admin?
-    # allow them to do whatever
-    # else
+    redirect_to new_user_session_path unless current_user && current_user.admin?
   end
 end

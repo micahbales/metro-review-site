@@ -28,8 +28,8 @@
   <div class="review-title" ><%= link_to review.title, edit_station_review_path(@station, review) %>
     <% if user_signed_in? %>
       <div id="voting-buttons">
-        <%= button_to "+", votes_path(Vote.new, params: { vote: { user_id: current_user.id, review_id: review.id, value: 1 } }), method: :post, id: "upvote-#{review.id}" %>
-        <%= button_to "-", votes_path(Vote.new, params: { vote: { user_id: current_user.id, review_id: review.id, value: -1 } }), method: :post, id: "downvote-#{review.id}" %>
+        <%= button_to "+", votes_path(Vote.new, params: { vote: { user_id: current_user.id, review_id: review.id, value: 1 } }), method: :post, id: "upvote-#{review.id}", class: "upvote" %>
+        <%= button_to "-", votes_path(Vote.new, params: { vote: { user_id: current_user.id, review_id: review.id, value: -1 } }), method: :post, id: "downvote-#{review.id}", class: "downvote" %>
       </div>
     <% end %>
 

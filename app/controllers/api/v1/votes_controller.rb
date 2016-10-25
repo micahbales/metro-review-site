@@ -2,6 +2,7 @@ class Api::V1::VotesController < ApplicationController
   protect_from_forgery with: :null_session
 
   def create
+
     @review = Review.find(vote_params[:review_id])
     @station = @review.station
     @vote = Vote.find_by(user_id: current_user.id, review_id: @review.id)
@@ -24,7 +25,9 @@ class Api::V1::VotesController < ApplicationController
       end
     else
       # add new vote
-      @vote = Vote.create(vote_params)
+      binding.pry
+      @vote = Vote.create(user_id: current_user.id, review_id: vote_params[:review_id], value: vote_params[:value])
+      render json: :nothing, status: :created, location: api_v1_vote_path(@vote)
       # "Thanks for your vote!"
     end
   end
@@ -32,6 +35,6 @@ class Api::V1::VotesController < ApplicationController
   private
 
   def vote_params
-    params.require(:vote).permit(:user_id, :review_id, :value)
+    params.require(:vote).permit(:review_id, :value)
   end
 end

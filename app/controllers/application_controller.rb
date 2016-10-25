@@ -6,10 +6,11 @@ class ApplicationController < ActionController::Base
   protected
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :admin])
   end
 
   def authenticate_admin!
+    
     # check first for current user
     # check to see if user is admin?
     # allow them to do whatever

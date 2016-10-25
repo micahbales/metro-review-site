@@ -21,6 +21,7 @@ RSpec.feature "user adds review" , %Q(
   scenario "authenticated user writes valid review" do
 
     visit "/"
+    login_user
     click_link("Benning Road Station")
     fill_in("Title", with: "Just My Two Cents")
     fill_in("Review", with: "Boy, this station stinks!")
@@ -36,12 +37,23 @@ RSpec.feature "user adds review" , %Q(
   scenario "authenticated user submits review without content" do
 
     visit "/"
+    login_user
     click_link("Benning Road Station")
     fill_in("Title", with: "Just My Two Cents")
     click_button("Submit Review")
 
     expect(page).to_not have_content("Just My Two Cents")
     expect(page).to have_content("Please provide both a title and a review")
+
+    DatabaseCleaner.clean
+  end
+
+  scenario "unauthenticated user tries to submit a review" do
+
+    visit "/"
+    click_link("Benning Road Station")
+    
+    expect(page).to_not have_content("Submit Review")
 
     DatabaseCleaner.clean
   end

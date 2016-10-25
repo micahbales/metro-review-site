@@ -13,4 +13,5 @@ FactoryGirl.define do
     email "m@bales.com"
     password "password"
     admin true
+  end
 end

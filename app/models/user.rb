@@ -4,6 +4,7 @@ class User < ApplicationRecord
   validates :last_name, presence: true
   validates :email, presence: true
   validates :encrypted_password, presence: true
+  validates :admin, presence: true
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable

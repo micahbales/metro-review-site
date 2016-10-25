@@ -37,6 +37,8 @@ $(document).ready(function() {
   $('.downvote').on('click', function(e) {
     e.preventDefault();
 
+    var reviewID = this.id.split('-')[1]
 
+    ajaxPost(reviewID, -1)
   });
 });

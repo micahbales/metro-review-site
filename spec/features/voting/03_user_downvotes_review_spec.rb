@@ -29,6 +29,7 @@ RSpec.feature "authenticated user downvotes review" , %Q(
     expect(page).to have_content('User Rating: -1')
     expect(page).to_not have_content('User Rating: 0')
     expect(page).to_not have_content('User Rating: 1')
+    expect(page).to have_content("Thanks for your vote!")
 
     DatabaseCleaner.clean
   end

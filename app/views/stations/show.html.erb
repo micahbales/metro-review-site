@@ -33,12 +33,14 @@
       </div>
     <% end %>
 
-    <span class="vote-total">User Rating:
-      <% if review.vote_total %>
-        <%= review.vote_total %>
-      <% else %>
-        0
-      <% end %>
+    <span class="vote-total" >User Rating:
+      <span id="vote-total-<%= review.id %>" >
+        <% if review.vote_total %>
+          <%= review.vote_total %>
+        <% else %>
+          0
+        <% end %>
+      </span>
     </span>
     <% if !user_signed_in? %>
       (<%= link_to "Sign in to vote!", new_user_session_path %>)

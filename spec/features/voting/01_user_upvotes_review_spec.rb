@@ -27,6 +27,7 @@ RSpec.feature "user votes on review" , %Q(
     click_button("upvote-#{review1.id}")
 
     expect(page).to have_content('User Rating: 1')
+    expect(page).to have_content("Thanks for your vote!")
 
     DatabaseCleaner.clean
   end

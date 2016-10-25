@@ -12,8 +12,9 @@
     <%= render "layouts/navigation" %>
     <%= yield %>
     <br />
-    <% flash.each do |key, value| %>
-      <%= value %>
+    <div id="flash-container"></div>
+    <% flash.each do |key, value|  %>
+        <%= value %>
     <% end %>
   </body>
 </html>

@@ -16,4 +16,11 @@ RSpec.configure do |config|
     fill_in("Password", with: "password")
     click_button "Log In"
   end
+
+  def login_admin
+    click_link "Sign In"
+    fill_in("Email", with: "micahbales@gmail.com")
+    fill_in("Password", with: "password")
+    click_button "Log In"
+  end
 end

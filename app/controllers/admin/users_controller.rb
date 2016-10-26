@@ -5,4 +5,11 @@ class Admin::UsersController < ApplicationController
     @users = User.all
     render :index
   end
+
+  def destroy
+    @users = User.all
+    @user = User.find(params[:id])
+    @user.destroy
+    render :index
+  end
 end

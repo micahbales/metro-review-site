@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resources :votes, only: [:create]
 
   namespace :admin do
-    resources :users, only: [:index]
+    resources :users, only: [:index, :destroy]
   end
 
   namespace :api do

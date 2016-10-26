@@ -2,6 +2,7 @@
 
 <ul>
   <% @users.reverse.each do |user| %>
-    <li><%= user.first_name %> <%= user.last_name %></li>
+
+    <li><%= user.first_name %> <%= user.last_name %> (<%= link_to "Delete User", admin_user_path(user), method: :delete, id: "user-delete-#{user.id}", class: "user-delete" %>)</li>
   <% end %>
 </ul>

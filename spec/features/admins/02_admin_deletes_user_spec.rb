@@ -8,19 +8,19 @@ RSpec.feature "admin deletes user" , %Q(
 
   # Acceptance Criteria:
 
-  # [] I must be an authenticated user with admin privileges
-  # [] On the users index page, I can view all registered users
+  # [x] I must be an authenticated user with admin privileges
+  # [x] On the users index page, I can view all registered users
   # [] When I visit the users index page, I can delete any listed user
 
-  let!(:user) { FactoryGirl.create(:user) }
-  let!(:admin) { FactoryGirl.create(:admin) }
-  let!(:user1) { FactoryGirl.create(:user) }
-  let!(:user2) { FactoryGirl.create(:user, first_name: James, last_name: Baldwin, email: "jimmyb@juno.com") }
+  let!(:admin) { FactoryGirl.create(:user, email: "micahbales@gmail.com", admin: true) }
+  let!(:user2) { FactoryGirl.create(:user, email: "bobby@builder.com") }
+  let!(:user3) { FactoryGirl.create(:user, first_name: "James",
+    last_name: "Baldwin", email: "jimmyb@juno.com") }
 
-  xscenario "admin deletes user" do
+  scenario "admin deletes user" do
 
     visit "/"
-    login_user
+    login_admin
     click_link("View All Users")
     click_link("user-delete-#{user1.id}")
 

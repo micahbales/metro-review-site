@@ -16,7 +16,7 @@ RSpec.feature "user deletes review" , %Q(
   let!(:station) { FactoryGirl.create(:station) }
   let!(:review1) { FactoryGirl.create(:review, station: station) }
 
-  scenario "authenticated user deletes review" do
+  xscenario "authenticated user deletes review" do
 
     visit "/"
     login_user

@@ -29,7 +29,6 @@ class VotesController < ApplicationController
         end
       end
     else
-      # add new vote
       @vote = Vote.create(vote_params)
 
       flash[:alert] = "Thanks for your vote!"

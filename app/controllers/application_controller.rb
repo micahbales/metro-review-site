@@ -6,6 +6,10 @@ class ApplicationController < ActionController::Base
   protected
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :admin])
+  end
+
+  def authenticate_admin!
+    redirect_to new_user_session_path unless current_user && current_user.admin?
   end
 end

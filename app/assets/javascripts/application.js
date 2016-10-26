@@ -26,11 +26,25 @@ $(document).ready(function() {
     });
 
     request.done(function(data) {
-      console.log(data);
       $("#vote-total-" + data.reviewID).text(data.voteTotal);
       $("#flash-container").text(data.voteMessage);
     });
   }
+
+  function ajaxDelete(userID) {
+
+    var request = $.ajax({
+        type: "POST",
+        url: "/admin/users/" + userID,
+        dataType: "json",
+        data: {"_method":"delete"}
+    });
+
+    request.done(function(data) {
+      $("#user-" + userID).hide();
+      $("#flash-container").text("User deleted!");
+    });
+  };
 
   $('.upvote').on('click', function(e) {
     e.preventDefault();
@@ -45,5 +59,14 @@ $(document).ready(function() {
     var reviewID = this.id.split('-')[1];
     ajaxPost(reviewID, -1);
 
+  });
+
+  $('.user-delete').on('click', function(e){
+    e.preventDefault();
+
+    var userID = this.id.split('-')[2];
+    ajaxDelete(userID);
+
+    return false
   });
 });

@@ -1,4 +1,3 @@
-
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|
     expectations.include_chain_clauses_in_custom_matcher_descriptions = true
@@ -13,6 +12,13 @@ RSpec.configure do |config|
   def login_user
     click_link "Sign In"
     fill_in("Email", with: "bob@thebuilder.com")
+    fill_in("Password", with: "password")
+    click_button "Log In"
+  end
+
+  def login_admin
+    click_link "Sign In"
+    fill_in("Email", with: "micahbales@gmail.com")
     fill_in("Password", with: "password")
     click_button "Log In"
   end

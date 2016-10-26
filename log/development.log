@@ -47492,3 +47492,1000 @@ Processing by Admin::UsersController#destroy as JSON
 Completed 200 OK in 6ms (Views: 0.1ms | ActiveRecord: 2.6ms)
 
 
+  [1m[35m (33.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (39.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "jimmy3@juno.com"], ["LIMIT", 1]]
+  [1m[35mSQL (5.8ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Jimmy"], ["last_name", "T3"], ["email", "jimmy3@juno.com"], ["encrypted_password", "$2a$11$4ICm7nrmFjtWgdAwvSl4guQaQcpswz0BYGbX0lFLvRDPokx/bCTeO"], ["created_at", 2016-10-26 13:34:34 UTC], ["updated_at", 2016-10-26 13:34:34 UTC]]
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "jimmy2@juno.com"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "jimmy1@juno.com"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+Started GET "/admin/users" for ::1 at 2016-10-26 09:34:52 -0400
+Processing by Admin::UsersController#index as HTML
+  [1m[36mUser Load (8.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  Rendering admin/users/index.html.erb within layouts/application
+  [1m[36mUser Load (14.3ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."first_name" DESC[0m
+  Rendered admin/users/index.html.erb within layouts/application (25.3ms)
+  Rendered layouts/_navigation.html.erb (3.6ms)
+Completed 200 OK in 183ms (Views: 122.9ms | ActiveRecord: 22.9ms)
+
+
+Started DELETE "/admin/users/45" for ::1 at 2016-10-26 09:35:18 -0400
+Processing by Admin::UsersController#destroy as JSON
+  Parameters: {"id"=>"45"}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 45], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 45]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 17ms (Views: 0.4ms | ActiveRecord: 4.4ms)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2016-10-26 09:50:08 -0400
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"pYP9sYiWalY5l4WV7+SD59nDgG77Et+Yx1hZbIcOUvyRNukiw1qv54dMatb/l2Et5fqSl4O/jPejI2oyKWuiaA=="}
+  [1m[36mUser Load (7.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 97ms (ActiveRecord: 9.2ms)
+
+
+Started GET "/" for ::1 at 2016-10-26 09:50:08 -0400
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mStation Load (1.4ms)[0m  [1m[34mSELECT "stations".* FROM "stations"[0m
+  Rendered home/index.html.erb within layouts/application (124.3ms)
+  Rendered layouts/_navigation.html.erb (60.9ms)
+Completed 200 OK in 567ms (Views: 498.5ms | ActiveRecord: 33.3ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2016-10-26 09:50:13 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (12.5ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (82.3ms)
+  Rendered layouts/_navigation.html.erb (1.9ms)
+Completed 200 OK in 231ms (Views: 217.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for ::1 at 2016-10-26 10:19:15 -0400
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"u/UNf+V+aPd9rrx8D/iiBAeTFqDNrwRVnv/bAaT1IKVVnckVCaEsvXKaBb62wYf5Yzsj/4NyK3oKUOIjjMBiAw==", "user"=>{"email"=>"micahbales@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log In"}
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "micahbales@gmail.com"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = $1, "sign_in_count" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["current_sign_in_at", 2016-10-26 14:19:15 UTC], ["sign_in_count", 2], ["updated_at", 2016-10-26 14:19:15 UTC], ["id", 18]]
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 148ms (ActiveRecord: 3.6ms)
+
+
+Started GET "/" for ::1 at 2016-10-26 10:19:15 -0400
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mStation Load (0.8ms)[0m  [1m[34mSELECT "stations".* FROM "stations"[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  Rendered home/index.html.erb within layouts/application (4.4ms)
+  Rendered layouts/_navigation.html.erb (1.2ms)
+Completed 200 OK in 29ms (Views: 27.0ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/stations/1" for ::1 at 2016-10-26 10:19:18 -0400
+Processing by StationsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mStation Load (0.7ms)[0m  [1m[34mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering stations/show.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."station_id" = $1[0m  [["station_id", 1]]
+  [1m[36mVote Load (0.4ms)[0m  [1m[34mSELECT "votes".* FROM "votes" WHERE "votes"."review_id" = $1[0m  [["review_id", 7]]
+  [1m[36mVote Load (0.3ms)[0m  [1m[34mSELECT "votes".* FROM "votes" WHERE "votes"."review_id" = $1[0m  [["review_id", 2]]
+  Rendered stations/show.html.erb within layouts/application (18.7ms)
+  Rendered layouts/_navigation.html.erb (0.8ms)
+Completed 200 OK in 76ms (Views: 31.1ms | ActiveRecord: 10.1ms)
+
+
+Started GET "/stations/1/edit" for ::1 at 2016-10-26 10:19:22 -0400
+Processing by StationsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mStation Load (0.3ms)[0m  [1m[34mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering stations/edit.html.erb within layouts/application
+  Rendered stations/edit.html.erb within layouts/application (6.6ms)
+  Rendered layouts/_navigation.html.erb (0.7ms)
+Completed 200 OK in 27ms (Views: 23.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/stations/1/edit" for ::1 at 2016-10-26 10:20:27 -0400
+Processing by StationsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mStation Load (0.7ms)[0m  [1m[34mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering stations/edit.html.erb within layouts/application
+  Rendered stations/edit.html.erb within layouts/application (2.4ms)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 1.2ms)
+
+
+  
+SyntaxError (/Users/micahbales/Dropbox/Documents/Git/metro-review-site/app/views/stations/edit.html.erb:25: syntax error, unexpected '>'
+/Users/micahbales/Dropbox/Documents/Git/metro-review-site/app/views/stations/edit.html.erb:26: unterminated string meets end of file):
+  
+app/views/stations/edit.html.erb:25: syntax error, unexpected '>'
+app/views/stations/edit.html.erb:26: unterminated string meets end of file
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (4.9ms)
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.1ms)
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (44.0ms)
+Started GET "/stations/1/edit" for ::1 at 2016-10-26 10:21:53 -0400
+Processing by StationsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mStation Load (0.4ms)[0m  [1m[34mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering stations/edit.html.erb within layouts/application
+  Rendered stations/edit.html.erb within layouts/application (2.5ms)
+  Rendered layouts/_navigation.html.erb (0.6ms)
+Completed 200 OK in 19ms (Views: 14.4ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/stations/1/edit" for ::1 at 2016-10-26 10:22:10 -0400
+Processing by StationsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mStation Load (0.5ms)[0m  [1m[34mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering stations/edit.html.erb within layouts/application
+  Rendered stations/edit.html.erb within layouts/application (4.9ms)
+  Rendered layouts/_navigation.html.erb (0.6ms)
+Completed 200 OK in 27ms (Views: 21.5ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/stations/1/edit" for ::1 at 2016-10-26 10:22:39 -0400
+Processing by StationsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mStation Load (0.8ms)[0m  [1m[34mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering stations/edit.html.erb within layouts/application
+  Rendered stations/edit.html.erb within layouts/application (21.6ms)
+Completed 500 Internal Server Error in 32ms (ActiveRecord: 1.4ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `user' for #<#<Class:0x007fc6fb8c9eb0>:0x007fc6f5725510>):
+    21: 
+    22: <% end %>
+    23: 
+    24: <% if user.admin? %>
+    25:   <%= link_to 'Delete Station', station_path(@station), method: :delete, data: { confirm: "Are you sure you want to delete #{@station.name} Station?" } %>
+    26: <% end %>
+  
+app/views/stations/edit.html.erb:24:in `_app_views_stations_edit_html_erb___148691722781823899_70246249082760'
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (7.9ms)
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (52.0ms)
+Started GET "/stations/1/edit" for ::1 at 2016-10-26 10:22:59 -0400
+Processing by StationsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mStation Load (0.4ms)[0m  [1m[34mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering stations/edit.html.erb within layouts/application
+  Rendered stations/edit.html.erb within layouts/application (5.2ms)
+  Rendered layouts/_navigation.html.erb (1.2ms)
+Completed 200 OK in 36ms (Views: 29.3ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/stations/1/edit" for ::1 at 2016-10-26 10:26:03 -0400
+Processing by StationsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mStation Load (0.4ms)[0m  [1m[34mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering stations/edit.html.erb within layouts/application
+  Rendered stations/edit.html.erb within layouts/application (13.2ms)
+  Rendered layouts/_navigation.html.erb (13.0ms)
+Completed 200 OK in 164ms (Views: 97.0ms | ActiveRecord: 5.3ms)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2016-10-26 10:26:09 -0400
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"fGD9GcOF6iC2zYM6RUW7IFPwu0mV88uA3Kzcf80h//6jv7zE9k9a6xfpY920YxlM5tXUsJMYADAzCUCyN6XiXw=="}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 5ms (ActiveRecord: 0.8ms)
+
+
+Started GET "/" for ::1 at 2016-10-26 10:26:09 -0400
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mStation Load (0.3ms)[0m  [1m[34mSELECT "stations".* FROM "stations"[0m
+  Rendered home/index.html.erb within layouts/application (2.1ms)
+  Rendered layouts/_navigation.html.erb (1.5ms)
+Completed 200 OK in 19ms (Views: 17.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2016-10-26 10:26:11 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.8ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (8.2ms)
+  Rendered layouts/_navigation.html.erb (17.1ms)
+Completed 200 OK in 55ms (Views: 53.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for ::1 at 2016-10-26 10:26:17 -0400
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"a666Seic+pHWaN+3+sTXzX+Ls7R8EB5ilYXjU8tWJ8Lw+UjCI5DmQwBwqUo+tDQPntIe6QNYH/xEoiz0wypSgA==", "user"=>{"email"=>"bob@builder.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log In"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "bob@builder.com"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 123ms (ActiveRecord: 0.5ms)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"a666Seic+pHWaN+3+sTXzX+Ls7R8EB5ilYXjU8tWJ8Lw+UjCI5DmQwBwqUo+tDQPntIe6QNYH/xEoiz0wypSgA==", "user"=>{"email"=>"bob@builder.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log In"}
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (0.8ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (4.4ms)
+  Rendered layouts/_navigation.html.erb (0.9ms)
+Completed 200 OK in 137ms (Views: 20.4ms | ActiveRecord: 0.0ms)
+
+
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "jimmy1@juno.com"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+Started POST "/users/sign_in" for ::1 at 2016-10-26 10:26:37 -0400
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"EvXW6Ell/vYznJd9ieH06YpYlde+8+hQpHA2nAW+biiJoiRjgmniJOWE4YBNkRcrawE4isG76c51V/k7DcIbag==", "user"=>{"email"=>"jimmy1@juno.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log In"}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "jimmy1@juno.com"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = $1, "last_sign_in_at" = $2, "current_sign_in_ip" = $3, "last_sign_in_ip" = $4, "sign_in_count" = $5, "updated_at" = $6 WHERE "users"."id" = $7[0m  [["current_sign_in_at", 2016-10-26 14:26:37 UTC], ["last_sign_in_at", 2016-10-26 14:26:37 UTC], ["current_sign_in_ip", "::1/128"], ["last_sign_in_ip", "::1/128"], ["sign_in_count", 1], ["updated_at", 2016-10-26 14:26:37 UTC], ["id", 42]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 131ms (ActiveRecord: 3.1ms)
+
+
+Started GET "/" for ::1 at 2016-10-26 10:26:37 -0400
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mStation Load (0.3ms)[0m  [1m[34mSELECT "stations".* FROM "stations"[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 42], ["LIMIT", 1]]
+  Rendered home/index.html.erb within layouts/application (2.9ms)
+  Rendered layouts/_navigation.html.erb (1.1ms)
+Completed 200 OK in 19ms (Views: 17.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/stations/2" for ::1 at 2016-10-26 10:26:39 -0400
+Processing by StationsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mStation Load (0.3ms)[0m  [1m[34mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering stations/show.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 42], ["LIMIT", 1]]
+  [1m[36mReview Load (0.4ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."station_id" = $1[0m  [["station_id", 2]]
+  [1m[36mVote Load (0.3ms)[0m  [1m[34mSELECT "votes".* FROM "votes" WHERE "votes"."review_id" = $1[0m  [["review_id", 6]]
+  [1m[36mVote Load (0.3ms)[0m  [1m[34mSELECT "votes".* FROM "votes" WHERE "votes"."review_id" = $1[0m  [["review_id", 5]]
+  [1m[36mVote Load (0.3ms)[0m  [1m[34mSELECT "votes".* FROM "votes" WHERE "votes"."review_id" = $1[0m  [["review_id", 4]]
+  Rendered stations/show.html.erb within layouts/application (17.1ms)
+  Rendered layouts/_navigation.html.erb (0.7ms)
+Completed 200 OK in 55ms (Views: 30.2ms | ActiveRecord: 6.9ms)
+
+
+Started GET "/stations/2/edit" for ::1 at 2016-10-26 10:26:44 -0400
+Processing by StationsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 42], ["LIMIT", 1]]
+  [1m[36mStation Load (0.3ms)[0m  [1m[34mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering stations/edit.html.erb within layouts/application
+  Rendered stations/edit.html.erb within layouts/application (3.8ms)
+  Rendered layouts/_navigation.html.erb (0.7ms)
+Completed 200 OK in 25ms (Views: 21.2ms | ActiveRecord: 0.6ms)
+
+
+  [1m[36mStation Load (0.7ms)[0m  [1m[34mSELECT "stations".* FROM "stations"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (2.2ms)[0m  [1m[32mINSERT INTO "stations" ("name", "line", "state", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Takoma Park"], ["line", "Red"], ["state", "DC"], ["created_at", 2016-10-26 14:28:53 UTC], ["updated_at", 2016-10-26 14:28:53 UTC]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/" for ::1 at 2016-10-26 10:29:03 -0400
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mStation Load (0.4ms)[0m  [1m[34mSELECT "stations".* FROM "stations"[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 42], ["LIMIT", 1]]
+  Rendered home/index.html.erb within layouts/application (16.8ms)
+  Rendered layouts/_navigation.html.erb (0.7ms)
+Completed 200 OK in 39ms (Views: 31.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/stations/3" for ::1 at 2016-10-26 10:29:04 -0400
+Processing by StationsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mStation Load (0.2ms)[0m  [1m[34mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering stations/show.html.erb within layouts/application
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 42], ["LIMIT", 1]]
+  [1m[36mReview Load (0.4ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."station_id" = $1[0m  [["station_id", 3]]
+  Rendered stations/show.html.erb within layouts/application (9.0ms)
+  Rendered layouts/_navigation.html.erb (0.7ms)
+Completed 200 OK in 59ms (Views: 25.9ms | ActiveRecord: 10.4ms)
+
+
+Started GET "/stations/3/edit" for ::1 at 2016-10-26 10:29:07 -0400
+Processing by StationsController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 42], ["LIMIT", 1]]
+  [1m[36mStation Load (0.3ms)[0m  [1m[34mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering stations/edit.html.erb within layouts/application
+  Rendered stations/edit.html.erb within layouts/application (2.9ms)
+  Rendered layouts/_navigation.html.erb (1.2ms)
+Completed 200 OK in 23ms (Views: 17.4ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for ::1 at 2016-10-26 10:29:11 -0400
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mStation Load (0.3ms)[0m  [1m[34mSELECT "stations".* FROM "stations"[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 42], ["LIMIT", 1]]
+  Rendered home/index.html.erb within layouts/application (4.1ms)
+  Rendered layouts/_navigation.html.erb (0.8ms)
+Completed 200 OK in 21ms (Views: 18.7ms | ActiveRecord: 0.8ms)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2016-10-26 10:29:15 -0400
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"NbW19dDKzo8L9ngAE/x76LBKS2N0USuTGPGJekSuNty9nWEJYcVQbV+zU170l5TbyA6vANPVZq5xJo/78pOBqg=="}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 42], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 6ms (ActiveRecord: 0.8ms)
+
+
+Started GET "/" for ::1 at 2016-10-26 10:29:15 -0400
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mStation Load (0.5ms)[0m  [1m[34mSELECT "stations".* FROM "stations"[0m
+  Rendered home/index.html.erb within layouts/application (4.8ms)
+  Rendered layouts/_navigation.html.erb (1.8ms)
+Completed 200 OK in 34ms (Views: 31.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2016-10-26 10:29:16 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.4ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (9.3ms)
+  Rendered layouts/_navigation.html.erb (1.1ms)
+Completed 200 OK in 28ms (Views: 26.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for ::1 at 2016-10-26 10:29:22 -0400
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"tSSswUlj3ReGbXlAT8CFHGV6o8SN1Y6tzvha+Nf4ZVJbPIBMJm2eHF6Sdr16WCqXlQmCme2uWbXTSLEhXCcSag==", "user"=>{"email"=>"micahbales@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log In"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "micahbales@gmail.com"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = $1, "last_sign_in_at" = $2, "sign_in_count" = $3, "updated_at" = $4 WHERE "users"."id" = $5[0m  [["current_sign_in_at", 2016-10-26 14:29:22 UTC], ["last_sign_in_at", 2016-10-26 14:19:15 UTC], ["sign_in_count", 3], ["updated_at", 2016-10-26 14:29:22 UTC], ["id", 18]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 131ms (ActiveRecord: 2.9ms)
+
+
+Started GET "/" for ::1 at 2016-10-26 10:29:22 -0400
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mStation Load (0.3ms)[0m  [1m[34mSELECT "stations".* FROM "stations"[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  Rendered home/index.html.erb within layouts/application (3.1ms)
+  Rendered layouts/_navigation.html.erb (0.8ms)
+Completed 200 OK in 16ms (Views: 14.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/stations/3" for ::1 at 2016-10-26 10:29:24 -0400
+Processing by StationsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mStation Load (0.3ms)[0m  [1m[34mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering stations/show.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."station_id" = $1[0m  [["station_id", 3]]
+  Rendered stations/show.html.erb within layouts/application (7.6ms)
+  Rendered layouts/_navigation.html.erb (1.7ms)
+Completed 200 OK in 28ms (Views: 25.0ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/stations/3/edit" for ::1 at 2016-10-26 10:29:26 -0400
+Processing by StationsController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mStation Load (0.3ms)[0m  [1m[34mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering stations/edit.html.erb within layouts/application
+  Rendered stations/edit.html.erb within layouts/application (4.7ms)
+  Rendered layouts/_navigation.html.erb (1.1ms)
+Completed 200 OK in 31ms (Views: 27.2ms | ActiveRecord: 0.7ms)
+
+
+Started DELETE "/admin/stations/3" for ::1 at 2016-10-26 10:29:29 -0400
+Processing by Admin::StationsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"tdXou65HVFRpJOr7dFlRyBOsC9BOtnpcsob8Q2acjYEbBpsl2hauSkB3autnVdDVimlO8iaKXOgH1XN6m4qNUw==", "id"=>"3"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mStation Load (0.3ms)[0m  [1m[34mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mReview Load (0.5ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."station_id" = $1[0m  [["station_id", 3]]
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "stations" WHERE "stations"."id" = $1[0m  [["id", 3]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 13ms (ActiveRecord: 3.3ms)
+
+
+Started GET "/" for ::1 at 2016-10-26 10:29:29 -0400
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mStation Load (0.3ms)[0m  [1m[34mSELECT "stations".* FROM "stations"[0m
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  Rendered home/index.html.erb within layouts/application (5.5ms)
+  Rendered layouts/_navigation.html.erb (2.1ms)
+Completed 200 OK in 30ms (Views: 27.2ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/stations/2" for ::1 at 2016-10-26 10:30:25 -0400
+Processing by StationsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mStation Load (0.3ms)[0m  [1m[34mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering stations/show.html.erb within layouts/application
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mReview Load (0.7ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."station_id" = $1[0m  [["station_id", 2]]
+  [1m[36mVote Load (0.4ms)[0m  [1m[34mSELECT "votes".* FROM "votes" WHERE "votes"."review_id" = $1[0m  [["review_id", 6]]
+  [1m[36mVote Load (0.3ms)[0m  [1m[34mSELECT "votes".* FROM "votes" WHERE "votes"."review_id" = $1[0m  [["review_id", 5]]
+  [1m[36mVote Load (0.3ms)[0m  [1m[34mSELECT "votes".* FROM "votes" WHERE "votes"."review_id" = $1[0m  [["review_id", 4]]
+  Rendered stations/show.html.erb within layouts/application (25.1ms)
+  Rendered layouts/_navigation.html.erb (1.5ms)
+Completed 200 OK in 46ms (Views: 41.3ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/stations/2/edit" for ::1 at 2016-10-26 10:30:29 -0400
+Processing by StationsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mStation Load (0.4ms)[0m  [1m[34mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering stations/edit.html.erb within layouts/application
+  Rendered stations/edit.html.erb within layouts/application (3.8ms)
+  Rendered layouts/_navigation.html.erb (0.8ms)
+Completed 200 OK in 22ms (Views: 17.0ms | ActiveRecord: 1.0ms)
+
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", :environment]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", :environment]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", :environment]]
+  [1m[35m (128.6ms)[0m  [1m[35mDROP DATABASE IF EXISTS "metro-review-site_test"[0m
+  [1m[35m (330.6ms)[0m  [1m[35mCREATE DATABASE "metro-review-site_test" ENCODING = 'unicode'[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (4.9ms)[0m  [1m[35mCREATE TABLE "reviews" ("id" serial primary key, "title" character varying NOT NULL, "content" character varying NOT NULL, "station_id" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (2.9ms)[0m  [1m[35mCREATE TABLE "stations" ("id" serial primary key, "name" character varying NOT NULL, "line" character varying NOT NULL, "state" character varying NOT NULL, "description" character varying, "parking" boolean DEFAULT 'f', "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (2.9ms)[0m  [1m[35mCREATE TABLE "users" ("id" serial primary key, "first_name" character varying NOT NULL, "last_name" character varying NOT NULL, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" timestamp, "last_sign_in_at" timestamp, "current_sign_in_ip" inet, "last_sign_in_ip" inet, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "admin" boolean DEFAULT 'f')[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_email" ON "users" USING btree ("email")[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_reset_password_token" ON "users" USING btree ("reset_password_token")[0m
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE TABLE "votes" ("id" serial primary key, "user_id" integer NOT NULL, "review_id" integer NOT NULL, "value" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying PRIMARY KEY)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES ('20161025171157')[0m
+  [1m[35m (0.4ms)[0m  [1m[32mINSERT INTO schema_migrations (version) VALUES ('20161019010959'), ('20161020134225'), ('20161021181439'), ('20161022185016');
+
+[0m
+  [1m[35m (2.9ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", 2016-10-26 14:37:46 UTC], ["updated_at", 2016-10-26 14:37:46 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/stations/2/edit" for ::1 at 2016-10-26 10:53:45 -0400
+Processing by StationsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mStation Load (0.3ms)[0m  [1m[34mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering stations/edit.html.erb within layouts/application
+  Rendered stations/edit.html.erb within layouts/application (3.8ms)
+  Rendered layouts/_navigation.html.erb (0.7ms)
+Completed 200 OK in 45ms (Views: 19.1ms | ActiveRecord: 4.9ms)
+
+
+Started GET "/" for ::1 at 2016-10-26 10:54:17 -0400
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mStation Load (0.3ms)[0m  [1m[34mSELECT "stations".* FROM "stations"[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  Rendered home/index.html.erb within layouts/application (4.1ms)
+  Rendered layouts/_navigation.html.erb (0.7ms)
+Completed 200 OK in 23ms (Views: 20.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/stations/1" for ::1 at 2016-10-26 10:54:19 -0400
+Processing by StationsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mStation Load (0.3ms)[0m  [1m[34mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering stations/show.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."station_id" = $1[0m  [["station_id", 1]]
+  [1m[36mVote Load (0.2ms)[0m  [1m[34mSELECT "votes".* FROM "votes" WHERE "votes"."review_id" = $1[0m  [["review_id", 7]]
+  [1m[36mVote Load (0.3ms)[0m  [1m[34mSELECT "votes".* FROM "votes" WHERE "votes"."review_id" = $1[0m  [["review_id", 2]]
+  Rendered stations/show.html.erb within layouts/application (14.1ms)
+  Rendered layouts/_navigation.html.erb (1.7ms)
+Completed 200 OK in 51ms (Views: 30.5ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/stations/1/reviews/7/edit" for ::1 at 2016-10-26 10:54:21 -0400
+Processing by ReviewsController#edit as HTML
+  Parameters: {"station_id"=>"1", "id"=>"7"}
+  [1m[36mReview Load (1.9ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mStation Load (0.6ms)[0m  [1m[34mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering reviews/show.html.erb within layouts/application
+  Rendered reviews/show.html.erb within layouts/application (3.8ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  Rendered layouts/_navigation.html.erb (4.3ms)
+Completed 200 OK in 40ms (Views: 34.2ms | ActiveRecord: 2.9ms)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2016-10-26 10:54:38 -0400
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"7kI6T9fDDHyIIp0V7ef5MSxz9IrBz106WlNJ0eIwvB1AkUnRo5L2YqFxHQX+63gstbaxqKnze47vAMboHya8zw=="}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 6ms (ActiveRecord: 1.1ms)
+
+
+Started GET "/" for ::1 at 2016-10-26 10:54:38 -0400
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mStation Load (0.3ms)[0m  [1m[34mSELECT "stations".* FROM "stations"[0m
+  Rendered home/index.html.erb within layouts/application (7.0ms)
+  Rendered layouts/_navigation.html.erb (5.9ms)
+Completed 200 OK in 38ms (Views: 36.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/stations/1" for ::1 at 2016-10-26 10:54:39 -0400
+Processing by StationsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mStation Load (0.3ms)[0m  [1m[34mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering stations/show.html.erb within layouts/application
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."station_id" = $1[0m  [["station_id", 1]]
+  [1m[36mVote Load (0.3ms)[0m  [1m[34mSELECT "votes".* FROM "votes" WHERE "votes"."review_id" = $1[0m  [["review_id", 7]]
+  [1m[36mVote Load (0.3ms)[0m  [1m[34mSELECT "votes".* FROM "votes" WHERE "votes"."review_id" = $1[0m  [["review_id", 2]]
+  Rendered stations/show.html.erb within layouts/application (9.6ms)
+  Rendered layouts/_navigation.html.erb (0.9ms)
+Completed 200 OK in 30ms (Views: 26.0ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/stations/1/reviews/7/edit" for ::1 at 2016-10-26 10:54:41 -0400
+Processing by ReviewsController#edit as HTML
+  Parameters: {"station_id"=>"1", "id"=>"7"}
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mStation Load (0.2ms)[0m  [1m[34mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering reviews/show.html.erb within layouts/application
+  Rendered reviews/show.html.erb within layouts/application (2.2ms)
+  Rendered layouts/_navigation.html.erb (1.4ms)
+Completed 200 OK in 22ms (Views: 19.8ms | ActiveRecord: 0.5ms)
+
+
+Started DELETE "/stations/1/reviews/7" for ::1 at 2016-10-26 10:54:43 -0400
+  
+ActionController::RoutingError (No route matches [DELETE] "/stations/1/reviews/7"):
+  
+actionpack (5.0.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:70:in `block in tagged'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:70:in `tagged'
+railties (5.0.0.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.0.1) lib/rails/engine.rb:522:in `call'
+rack (2.0.1) lib/rack/handler/webrick.rb:86:in `service'
+/Users/micahbales/.rubies/ruby-2.2.5/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+/Users/micahbales/.rubies/ruby-2.2.5/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+/Users/micahbales/.rubies/ruby-2.2.5/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.3ms)
+  Rendered collection of /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [37 times] (14.7ms)
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (2.4ms)
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.9ms)
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (88.7ms)
+Started GET "/users/sign_in" for ::1 at 2016-10-26 10:54:49 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.2ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (6.3ms)
+  Rendered layouts/_navigation.html.erb (1.1ms)
+Completed 200 OK in 23ms (Views: 21.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/stations/1/reviews/7/edit" for ::1 at 2016-10-26 10:55:33 -0400
+Processing by ReviewsController#edit as HTML
+  Parameters: {"station_id"=>"1", "id"=>"7"}
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mStation Load (0.3ms)[0m  [1m[34mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering reviews/show.html.erb within layouts/application
+  Rendered reviews/show.html.erb within layouts/application (1.1ms)
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.7ms)
+
+
+  
+SyntaxError (/Users/micahbales/Dropbox/Documents/Git/metro-review-site/app/views/reviews/show.html.erb:16: syntax error, unexpected ')', expecting keyword_then or ';' or '\n'
+...pend=( if current_user.admin? );@output_buffer.safe_append='
+...                               ^
+/Users/micahbales/Dropbox/Documents/Git/metro-review-site/app/views/reviews/show.html.erb:18: syntax error, unexpected keyword_end, expecting ')'
+'.freeze; end 
+             ^
+/Users/micahbales/Dropbox/Documents/Git/metro-review-site/app/views/reviews/show.html.erb:22: syntax error, unexpected keyword_ensure, expecting ')'
+/Users/micahbales/Dropbox/Documents/Git/metro-review-site/app/views/reviews/show.html.erb:24: syntax error, unexpected keyword_end, expecting ')'):
+  
+app/views/reviews/show.html.erb:16: syntax error, unexpected ')', expecting keyword_then or ';' or '\n'
+app/views/reviews/show.html.erb:18: syntax error, unexpected keyword_end, expecting ')'
+app/views/reviews/show.html.erb:22: syntax error, unexpected keyword_ensure, expecting ')'
+app/views/reviews/show.html.erb:24: syntax error, unexpected keyword_end, expecting ')'
+app/controllers/reviews_controller.rb:26:in `edit'
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (5.6ms)
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.5ms)
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (42.1ms)
+Started GET "/stations/1/reviews/7/edit" for ::1 at 2016-10-26 10:55:37 -0400
+Processing by ReviewsController#edit as HTML
+  Parameters: {"station_id"=>"1", "id"=>"7"}
+  [1m[36mReview Load (0.4ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mStation Load (0.6ms)[0m  [1m[34mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering reviews/show.html.erb within layouts/application
+  Rendered reviews/show.html.erb within layouts/application (5.0ms)
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 1.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `admin?' for nil:NilClass):
+    13:   <br />
+    14:   <%= f.submit 'Update' %>
+    15: <% end %>
+    16: <% if current_user.admin? %>
+    17:   <h5><%= link_to "Delete Review", station_review_path(@station, @review),  method: :delete %></h5>
+    18: <% end %>
+    19: 
+  
+app/views/reviews/show.html.erb:16:in `_app_views_reviews_show_html_erb___804423440132429074_70246276680680'
+app/controllers/reviews_controller.rb:26:in `edit'
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (8.0ms)
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.4ms)
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (54.4ms)
+Started GET "/stations/1" for ::1 at 2016-10-26 10:55:53 -0400
+Processing by StationsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mStation Load (0.3ms)[0m  [1m[34mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering stations/show.html.erb within layouts/application
+  [1m[36mReview Load (0.4ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."station_id" = $1[0m  [["station_id", 1]]
+  [1m[36mVote Load (0.3ms)[0m  [1m[34mSELECT "votes".* FROM "votes" WHERE "votes"."review_id" = $1[0m  [["review_id", 7]]
+  [1m[36mVote Load (0.2ms)[0m  [1m[34mSELECT "votes".* FROM "votes" WHERE "votes"."review_id" = $1[0m  [["review_id", 2]]
+  Rendered stations/show.html.erb within layouts/application (8.1ms)
+  Rendered layouts/_navigation.html.erb (0.7ms)
+Completed 200 OK in 27ms (Views: 22.7ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/stations/1" for ::1 at 2016-10-26 10:57:09 -0400
+Processing by StationsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mStation Load (0.3ms)[0m  [1m[34mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering stations/show.html.erb within layouts/application
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."station_id" = $1[0m  [["station_id", 1]]
+  [1m[36mVote Load (0.3ms)[0m  [1m[34mSELECT "votes".* FROM "votes" WHERE "votes"."review_id" = $1[0m  [["review_id", 7]]
+  [1m[36mVote Load (0.3ms)[0m  [1m[34mSELECT "votes".* FROM "votes" WHERE "votes"."review_id" = $1[0m  [["review_id", 2]]
+  Rendered stations/show.html.erb within layouts/application (5.9ms)
+  Rendered layouts/_navigation.html.erb (0.7ms)
+Completed 200 OK in 23ms (Views: 20.2ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/stations/1/reviews/2/edit" for ::1 at 2016-10-26 10:57:11 -0400
+Processing by ReviewsController#edit as HTML
+  Parameters: {"station_id"=>"1", "id"=>"2"}
+  [1m[36mReview Load (0.4ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mStation Load (0.2ms)[0m  [1m[34mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering reviews/show.html.erb within layouts/application
+  Rendered reviews/show.html.erb within layouts/application (4.5ms)
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.6ms)
+
+
+  
+ActionView::Template::Error (undefined method `admin?' for nil:NilClass):
+    13:   <br />
+    14:   <%= f.submit 'Update' %>
+    15: <% end %>
+    16: <% if current_user.admin? %>
+    17:   <h5><%= link_to "Delete Review", station_review_path(@station, @review),  method: :delete %></h5>
+    18: <% end %>
+    19: 
+  
+app/views/reviews/show.html.erb:16:in `_app_views_reviews_show_html_erb___804423440132429074_70246320984120'
+app/controllers/reviews_controller.rb:26:in `edit'
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (6.0ms)
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.9ms)
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (42.5ms)
+Started GET "/stations/1/reviews/2/edit" for ::1 at 2016-10-26 10:58:22 -0400
+Processing by ReviewsController#edit as HTML
+  Parameters: {"station_id"=>"1", "id"=>"2"}
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mStation Load (0.4ms)[0m  [1m[34mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering reviews/show.html.erb within layouts/application
+  Rendered reviews/show.html.erb within layouts/application (2.4ms)
+  Rendered layouts/_navigation.html.erb (1.0ms)
+Completed 200 OK in 25ms (Views: 21.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2016-10-26 10:58:27 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.6ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (5.7ms)
+  Rendered layouts/_navigation.html.erb (2.0ms)
+Completed 200 OK in 26ms (Views: 25.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for ::1 at 2016-10-26 10:58:32 -0400
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"9Z0YpiI2XHMMbn/4bUPtc8obgAdPlJEUBfbgObgs0urR15ohoIMA5Kn4jpjaD22YhNE3Xhg/WhwScgRtC3ZtLw==", "user"=>{"email"=>"micahbales@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log In"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "micahbales@gmail.com"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = $1, "last_sign_in_at" = $2, "sign_in_count" = $3, "updated_at" = $4 WHERE "users"."id" = $5[0m  [["current_sign_in_at", 2016-10-26 14:58:32 UTC], ["last_sign_in_at", 2016-10-26 14:29:22 UTC], ["sign_in_count", 4], ["updated_at", 2016-10-26 14:58:32 UTC], ["id", 18]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 132ms (ActiveRecord: 1.4ms)
+
+
+Started GET "/" for ::1 at 2016-10-26 10:58:32 -0400
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mStation Load (0.3ms)[0m  [1m[34mSELECT "stations".* FROM "stations"[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  Rendered home/index.html.erb within layouts/application (2.8ms)
+  Rendered layouts/_navigation.html.erb (0.7ms)
+Completed 200 OK in 19ms (Views: 17.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/stations/2" for ::1 at 2016-10-26 10:58:34 -0400
+Processing by StationsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mStation Load (0.3ms)[0m  [1m[34mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering stations/show.html.erb within layouts/application
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."station_id" = $1[0m  [["station_id", 2]]
+  [1m[36mVote Load (0.3ms)[0m  [1m[34mSELECT "votes".* FROM "votes" WHERE "votes"."review_id" = $1[0m  [["review_id", 6]]
+  [1m[36mVote Load (0.8ms)[0m  [1m[34mSELECT "votes".* FROM "votes" WHERE "votes"."review_id" = $1[0m  [["review_id", 5]]
+  [1m[36mVote Load (0.3ms)[0m  [1m[34mSELECT "votes".* FROM "votes" WHERE "votes"."review_id" = $1[0m  [["review_id", 4]]
+  Rendered stations/show.html.erb within layouts/application (21.4ms)
+  Rendered layouts/_navigation.html.erb (2.1ms)
+Completed 200 OK in 40ms (Views: 34.1ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/stations/2/reviews/6/edit" for ::1 at 2016-10-26 10:58:36 -0400
+Processing by ReviewsController#edit as HTML
+  Parameters: {"station_id"=>"2", "id"=>"6"}
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mStation Load (0.2ms)[0m  [1m[34mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering reviews/show.html.erb within layouts/application
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  Rendered reviews/show.html.erb within layouts/application (8.9ms)
+  Rendered layouts/_navigation.html.erb (0.7ms)
+Completed 200 OK in 28ms (Views: 24.9ms | ActiveRecord: 1.9ms)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2016-10-26 10:58:42 -0400
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"dgYqaF8MGqEPe0TPok6+rX3RmVRe0iE71/ONMLQI36xiIH38kFbx0jA8aykApPeEUGZoeXC9aZBCFQ5im/wIlQ=="}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 7ms (ActiveRecord: 0.9ms)
+
+
+Started GET "/" for ::1 at 2016-10-26 10:58:42 -0400
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mStation Load (0.4ms)[0m  [1m[34mSELECT "stations".* FROM "stations"[0m
+  Rendered home/index.html.erb within layouts/application (3.2ms)
+  Rendered layouts/_navigation.html.erb (1.4ms)
+Completed 200 OK in 29ms (Views: 25.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/stations/2/reviews/6/edit" for ::1 at 2016-10-26 10:58:44 -0400
+Processing by ReviewsController#edit as HTML
+  Parameters: {"station_id"=>"2", "id"=>"6"}
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mStation Load (0.2ms)[0m  [1m[34mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering reviews/show.html.erb within layouts/application
+  Rendered reviews/show.html.erb within layouts/application (3.6ms)
+  Rendered layouts/_navigation.html.erb (0.7ms)
+Completed 200 OK in 20ms (Views: 17.7ms | ActiveRecord: 0.5ms)
+
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", :environment]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", :environment]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", :environment]]
+  [1m[35m (120.5ms)[0m  [1m[35mDROP DATABASE IF EXISTS "metro-review-site_test"[0m
+  [1m[35m (237.8ms)[0m  [1m[35mCREATE DATABASE "metro-review-site_test" ENCODING = 'unicode'[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (4.9ms)[0m  [1m[35mCREATE TABLE "reviews" ("id" serial primary key, "title" character varying NOT NULL, "content" character varying NOT NULL, "station_id" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (2.9ms)[0m  [1m[35mCREATE TABLE "stations" ("id" serial primary key, "name" character varying NOT NULL, "line" character varying NOT NULL, "state" character varying NOT NULL, "description" character varying, "parking" boolean DEFAULT 'f', "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (2.8ms)[0m  [1m[35mCREATE TABLE "users" ("id" serial primary key, "first_name" character varying NOT NULL, "last_name" character varying NOT NULL, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" timestamp, "last_sign_in_at" timestamp, "current_sign_in_ip" inet, "last_sign_in_ip" inet, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "admin" boolean DEFAULT 'f')[0m
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_email" ON "users" USING btree ("email")[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_reset_password_token" ON "users" USING btree ("reset_password_token")[0m
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE TABLE "votes" ("id" serial primary key, "user_id" integer NOT NULL, "review_id" integer NOT NULL, "value" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying PRIMARY KEY)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES ('20161025171157')[0m
+  [1m[35m (0.5ms)[0m  [1m[32mINSERT INTO schema_migrations (version) VALUES ('20161019010959'), ('20161020134225'), ('20161021181439'), ('20161022185016');
+
+[0m
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", 2016-10-26 15:18:15 UTC], ["updated_at", 2016-10-26 15:18:15 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", :environment]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", :environment]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", :environment]]
+  [1m[35m (125.1ms)[0m  [1m[35mDROP DATABASE IF EXISTS "metro-review-site_test"[0m
+  [1m[35m (237.1ms)[0m  [1m[35mCREATE DATABASE "metro-review-site_test" ENCODING = 'unicode'[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (5.6ms)[0m  [1m[35mCREATE TABLE "reviews" ("id" serial primary key, "title" character varying NOT NULL, "content" character varying NOT NULL, "station_id" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (3.4ms)[0m  [1m[35mCREATE TABLE "stations" ("id" serial primary key, "name" character varying NOT NULL, "line" character varying NOT NULL, "state" character varying NOT NULL, "description" character varying, "parking" boolean DEFAULT 'f', "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (2.7ms)[0m  [1m[35mCREATE TABLE "users" ("id" serial primary key, "first_name" character varying NOT NULL, "last_name" character varying NOT NULL, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" timestamp, "last_sign_in_at" timestamp, "current_sign_in_ip" inet, "last_sign_in_ip" inet, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "admin" boolean DEFAULT 'f')[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_email" ON "users" USING btree ("email")[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_reset_password_token" ON "users" USING btree ("reset_password_token")[0m
+  [1m[35m (3.4ms)[0m  [1m[35mCREATE TABLE "votes" ("id" serial primary key, "user_id" integer NOT NULL, "review_id" integer NOT NULL, "value" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (2.8ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying PRIMARY KEY)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES ('20161025171157')[0m
+  [1m[35m (0.4ms)[0m  [1m[32mINSERT INTO schema_migrations (version) VALUES ('20161019010959'), ('20161020134225'), ('20161021181439'), ('20161022185016');
+
+[0m
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", 2016-10-26 15:20:33 UTC], ["updated_at", 2016-10-26 15:20:33 UTC]]
+  [1m[35m (1.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/" for ::1 at 2016-10-26 11:20:41 -0400
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mStation Load (0.3ms)[0m  [1m[34mSELECT "stations".* FROM "stations"[0m
+  Rendered home/index.html.erb within layouts/application (2.5ms)
+  Rendered layouts/_navigation.html.erb (0.9ms)
+Completed 200 OK in 22ms (Views: 19.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/stations/1" for ::1 at 2016-10-26 11:20:46 -0400
+Processing by StationsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mStation Load (0.3ms)[0m  [1m[34mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering stations/show.html.erb within layouts/application
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."station_id" = $1[0m  [["station_id", 1]]
+  [1m[36mVote Load (0.2ms)[0m  [1m[34mSELECT "votes".* FROM "votes" WHERE "votes"."review_id" = $1[0m  [["review_id", 7]]
+  [1m[36mVote Load (0.3ms)[0m  [1m[34mSELECT "votes".* FROM "votes" WHERE "votes"."review_id" = $1[0m  [["review_id", 2]]
+  Rendered stations/show.html.erb within layouts/application (7.6ms)
+  Rendered layouts/_navigation.html.erb (1.3ms)
+Completed 200 OK in 27ms (Views: 23.5ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/stations/1" for ::1 at 2016-10-26 11:41:22 -0400
+Processing by StationsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mStation Load (0.2ms)[0m  [1m[34mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering stations/show.html.erb within layouts/application
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."station_id" = $1[0m  [["station_id", 1]]
+  [1m[36mVote Load (0.2ms)[0m  [1m[34mSELECT "votes".* FROM "votes" WHERE "votes"."review_id" = $1[0m  [["review_id", 7]]
+  [1m[36mVote Load (0.2ms)[0m  [1m[34mSELECT "votes".* FROM "votes" WHERE "votes"."review_id" = $1[0m  [["review_id", 2]]
+  Rendered stations/show.html.erb within layouts/application (6.2ms)
+  Rendered layouts/_navigation.html.erb (1.4ms)
+Completed 200 OK in 27ms (Views: 23.5ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for ::1 at 2016-10-26 11:41:23 -0400
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mStation Load (0.3ms)[0m  [1m[34mSELECT "stations".* FROM "stations"[0m
+  Rendered home/index.html.erb within layouts/application (1.8ms)
+  Rendered layouts/_navigation.html.erb (3.3ms)
+Completed 200 OK in 32ms (Views: 29.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/stations/1" for ::1 at 2016-10-26 12:09:51 -0400
+Processing by StationsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mStation Load (0.2ms)[0m  [1m[34mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering stations/show.html.erb within layouts/application
+  [1m[36mReview Load (0.6ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."station_id" = $1[0m  [["station_id", 1]]
+  [1m[36mVote Load (0.2ms)[0m  [1m[34mSELECT "votes".* FROM "votes" WHERE "votes"."review_id" = $1[0m  [["review_id", 7]]
+  [1m[36mVote Load (0.2ms)[0m  [1m[34mSELECT "votes".* FROM "votes" WHERE "votes"."review_id" = $1[0m  [["review_id", 2]]
+  Rendered stations/show.html.erb within layouts/application (8.6ms)
+  Rendered layouts/_navigation.html.erb (0.7ms)
+Completed 200 OK in 28ms (Views: 22.6ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/stations/1/reviews/7/edit" for ::1 at 2016-10-26 12:09:54 -0400
+Processing by ReviewsController#edit as HTML
+  Parameters: {"station_id"=>"1", "id"=>"7"}
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mStation Load (0.2ms)[0m  [1m[34mSELECT  "stations".* FROM "stations" WHERE "stations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering reviews/show.html.erb within layouts/application
+  Rendered reviews/show.html.erb within layouts/application (3.5ms)
+  Rendered layouts/_navigation.html.erb (1.5ms)
+Completed 200 OK in 27ms (Views: 25.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2016-10-26 12:10:06 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.3ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (6.2ms)
+  Rendered layouts/_navigation.html.erb (0.9ms)
+Completed 200 OK in 24ms (Views: 23.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for ::1 at 2016-10-26 12:10:14 -0400
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"l/j1rLsavnTzv0Q34By/yZIfnzTbJ5c/H/Eqi0X0EjTRXj3l0FxFDrzQrWDnJ5CorClWPZlDEa9d+z+xyRN8NQ==", "user"=>{"email"=>"micahbales@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log In"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "micahbales@gmail.com"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = $1, "last_sign_in_at" = $2, "sign_in_count" = $3, "updated_at" = $4 WHERE "users"."id" = $5[0m  [["current_sign_in_at", 2016-10-26 16:10:14 UTC], ["last_sign_in_at", 2016-10-26 14:58:32 UTC], ["sign_in_count", 5], ["updated_at", 2016-10-26 16:10:14 UTC], ["id", 18]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 136ms (ActiveRecord: 2.3ms)
+
+
+Started GET "/" for ::1 at 2016-10-26 12:10:14 -0400
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mStation Load (0.3ms)[0m  [1m[34mSELECT "stations".* FROM "stations"[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  Rendered home/index.html.erb within layouts/application (3.3ms)
+  Rendered layouts/_navigation.html.erb (0.7ms)
+Completed 200 OK in 17ms (Views: 15.1ms | ActiveRecord: 0.7ms)
+
+

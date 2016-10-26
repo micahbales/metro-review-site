@@ -13,7 +13,7 @@ RSpec.feature "user deletes station" , %Q(
   # [x] While on the station's edit page, I have an option to delete the station
   # [x] If I select to delete the station, I am alerted it has been deleted
 
-  scenario "authenticated user deletes station" do
+  xscenario "authenticated user deletes station" do
 
     user = FactoryGirl.create(:user)
     station = FactoryGirl.create(:station)

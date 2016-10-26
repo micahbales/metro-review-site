@@ -40,13 +40,6 @@ class ReviewsController < ApplicationController
     end
   end
 
-  def destroy
-    @review = Review.find(params[:id])
-    @review.destroy
-    flash[:alert] = "Review deleted."
-    redirect_to station_path(params[:station_id])
-  end
-
   private
   def review_params
     params.require(:review).permit(:title, :content, :station_id)

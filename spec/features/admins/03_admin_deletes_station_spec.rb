@@ -8,34 +8,35 @@ RSpec.feature "admin deletes station" , %Q(
 
   # Acceptance Criteria:
 
-  # [] I must be an authenticated user with admin privileges
-  # [] When I navigate to the station update page, I have an option to
+  # [x] I must be an authenticated user with admin privileges
+  # [x] When I navigate to the station update page, I have an option to
   #    delete the station
+  # [x] Non-admins cannot delete stations
 
-  let!(:user) { FactoryGirl.create(:user) }
-  let!(:admin) { FactoryGirl.create(:admin) }
+  let!(:user1) { FactoryGirl.create(:user, email: "micahbales@gmail.com", password: "password", admin: true) }
+  let!(:user2) { FactoryGirl.create(:user) }
   let!(:station1) { FactoryGirl.create(:station) }
   let!(:station2) { FactoryGirl.create(:station, name: "Anacostia") }
 
-  xscenario "admin deletes station" do
+  scenario "admin deletes station" do
 
     visit "/"
-    login_user
-    click_link("Benning Road Station")
+    login_admin
+    click_link("station-#{station1.id}")
     click_link("Update Station")
     click_link("Delete Station")
 
     expect(page).to have_content("Anacostia Station")
     expect(page).to_not have_content("Benning Road Station")
-    expect(page).to have_content("Station deleted!")
-
+    expect(page).to have_content("Station deleted from site")
     DatabaseCleaner.clean
   end
 
-  xscenario "non-admin user cannot delete station" do
+  scenario "non-admin user cannot delete station" do
 
     visit "/"
-    click_link("Benning Road Station")
+    login_user
+    click_link("station-#{station1.id}")
     click_link("Update Station")
 
     expect(page).to_not have_content("Delete Station")

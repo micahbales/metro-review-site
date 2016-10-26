@@ -13,6 +13,9 @@
   <br />
   <%= f.submit 'Update' %>
 <% end %>
-<h5><%= link_to "Delete Review", station_review_path(@station, @review),  method: :delete %></h5>
+
+<% if user_signed_in? && current_user.admin? %>
+  <h5><%= link_to "Delete Review", admin_review_path(@review, station_id: @station.id),  method: :delete %></h5>
+<% end %>
 
 <h5><%= link_to "Return to #{@station.name} Station", station_path(@station) %></h5>

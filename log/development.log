@@ -45316,3 +45316,2179 @@ Processing by Admin::UsersController#index as HTML
 Completed 200 OK in 31ms (Views: 27.6ms | ActiveRecord: 1.1ms)
 
 
+Started DELETE "/admin/users/4" for ::1 at 2016-10-25 21:32:04 -0400
+Processing by Admin::UsersController#destroy as HTML
+  Parameters: {"authenticity_token"=>"HD0wcyLhdRp15UNxhvu8D2o+aCVpOMh8U5enf3dAbqcShnn3srUXcC7zwhsTNSVh2wA9t7xKAZayEDNNTsmacw==", "id"=>"4"}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 4]]
+  [1m[35m (1.6ms)[0m  [1m[35mCOMMIT[0m
+  Rendering admin/users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered admin/users/index.html.erb within layouts/application (2.2ms)
+  Rendered layouts/_navigation.html.erb (1.5ms)
+Completed 200 OK in 32ms (Views: 20.9ms | ActiveRecord: 4.4ms)
+
+
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "micahbales@gmail.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "encrypted_password", "created_at", "updated_at", "admin") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["first_name", "Micah"], ["last_name", "Bales"], ["email", "micahbales@gmail.com"], ["encrypted_password", "$2a$11$FKjxz1reN99XgrwKxWsqYuG0tHUxzzHVze3EF4ksGbLEC10WJHT26"], ["created_at", 2016-10-26 01:32:47 UTC], ["updated_at", 2016-10-26 01:32:47 UTC], ["admin", true]]
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+Started DELETE "/admin/users/4" for ::1 at 2016-10-25 21:32:53 -0400
+Processing by Admin::UsersController#destroy as HTML
+  Parameters: {"authenticity_token"=>"HD0wcyLhdRp15UNxhvu8D2o+aCVpOMh8U5enf3dAbqcShnn3srUXcC7zwhsTNSVh2wA9t7xKAZayEDNNTsmacw==", "id"=>"4"}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+Redirected to http://localhost:3000/users/sign_in
+Filter chain halted as :authenticate_admin! rendered or redirected
+Completed 302 Found in 7ms (ActiveRecord: 1.1ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2016-10-25 21:32:53 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.5ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (19.9ms)
+  Rendered layouts/_navigation.html.erb (0.8ms)
+Completed 200 OK in 37ms (Views: 35.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for ::1 at 2016-10-25 21:32:58 -0400
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"SPiphBhKy/LUCvN/J604RwsZ2mf1yl2Ky2zTx1ND+UdGQ+AAiB6pmI8cchWyY6EpuieP9SC4lGAq60f1asoNkw==", "user"=>{"email"=>"micahbales@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log In"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "micahbales@gmail.com"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = $1, "last_sign_in_at" = $2, "current_sign_in_ip" = $3, "last_sign_in_ip" = $4, "sign_in_count" = $5, "updated_at" = $6 WHERE "users"."id" = $7[0m  [["current_sign_in_at", 2016-10-26 01:32:58 UTC], ["last_sign_in_at", 2016-10-26 01:32:58 UTC], ["current_sign_in_ip", "::1/128"], ["last_sign_in_ip", "::1/128"], ["sign_in_count", 1], ["updated_at", 2016-10-26 01:32:58 UTC], ["id", 8]]
+  [1m[35m (5.3ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 149ms (ActiveRecord: 6.6ms)
+
+
+Started GET "/" for ::1 at 2016-10-25 21:32:58 -0400
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mStation Load (0.5ms)[0m  [1m[34mSELECT "stations".* FROM "stations"[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  Rendered home/index.html.erb within layouts/application (12.7ms)
+  Rendered layouts/_navigation.html.erb (0.7ms)
+Completed 200 OK in 29ms (Views: 20.4ms | ActiveRecord: 5.1ms)
+
+
+Started GET "/admin/users" for ::1 at 2016-10-25 21:33:01 -0400
+Processing by Admin::UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering admin/users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered admin/users/index.html.erb within layouts/application (2.5ms)
+  Rendered layouts/_navigation.html.erb (0.7ms)
+Completed 200 OK in 21ms (Views: 18.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/admin/users" for ::1 at 2016-10-25 21:34:38 -0400
+Processing by Admin::UsersController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering admin/users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered admin/users/index.html.erb within layouts/application (4.1ms)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 1.6ms)
+
+
+  
+ActionView::Template::Error (wrong number of arguments (1 for 0)):
+    3: <ul>
+    4:   <% @users.reverse.each do |user| %>
+    5: 
+    6:     <li><%= user.first_name %> <%= user.last_name %> (<%= link_to "Delete User", admin_user_path(user), method: :delete, id: "user-delete-#{user.id}", class: "user-delete", data: { confirm: "Are you sure you want to delete user #{user.first_name user.last_name}?" } %>)</li>
+    7:   <% end %>
+    8: </ul>
+  
+app/views/admin/users/index.html.erb:6:in `block in _app_views_admin_users_index_html_erb___2876637675925633413_70127469156840'
+app/views/admin/users/index.html.erb:4:in `each'
+app/views/admin/users/index.html.erb:4:in `_app_views_admin_users_index_html_erb___2876637675925633413_70127469156840'
+app/controllers/admin/users_controller.rb:6:in `index'
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (11.0ms)
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.7ms)
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (53.4ms)
+Started GET "/admin/users" for ::1 at 2016-10-25 21:35:11 -0400
+Processing by Admin::UsersController#index as HTML
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering admin/users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered admin/users/index.html.erb within layouts/application (2.8ms)
+  Rendered layouts/_navigation.html.erb (1.9ms)
+Completed 200 OK in 37ms (Views: 31.5ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/admin/users" for ::1 at 2016-10-25 21:35:23 -0400
+Processing by Admin::UsersController#index as HTML
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering admin/users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered admin/users/index.html.erb within layouts/application (3.3ms)
+  Rendered layouts/_navigation.html.erb (1.9ms)
+Completed 200 OK in 34ms (Views: 29.9ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/admin/users" for ::1 at 2016-10-25 21:35:31 -0400
+Processing by Admin::UsersController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering admin/users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered admin/users/index.html.erb within layouts/application (3.6ms)
+  Rendered layouts/_navigation.html.erb (1.5ms)
+Completed 200 OK in 35ms (Views: 31.8ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/admin/users" for ::1 at 2016-10-25 21:43:01 -0400
+Processing by Admin::UsersController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering admin/users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered admin/users/index.html.erb within layouts/application (3.6ms)
+  Rendered layouts/_navigation.html.erb (1.3ms)
+Completed 200 OK in 93ms (Views: 90.9ms | ActiveRecord: 1.1ms)
+
+
+Started DELETE "/admin/users/delete" for ::1 at 2016-10-25 21:43:06 -0400
+Processing by Admin::UsersController#destroy as JSON
+  Parameters: {"id"=>"delete"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+Completed 404 Not Found in 6ms (ActiveRecord: 2.2ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=delete):
+  
+app/controllers/admin/users_controller.rb:11:in `destroy'
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.text.erb
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.text.erb
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.text.erb (0.6ms)
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (0.9ms)
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb (0.8ms)
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.text.erb (38.2ms)
+Started DELETE "/admin/users/3" for ::1 at 2016-10-25 21:43:15 -0400
+Processing by Admin::UsersController#destroy as HTML
+  Parameters: {"authenticity_token"=>"7G1t4ECjo6fWI9ku1eAXPYmGz4GzgqoPZPO7G2nzHkfWA8QJKaDQ/OgHyVuczjsmFrgf0rCFEclmWFssnv7W4g==", "id"=>"3"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 3]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  Rendering admin/users/index.html.erb within layouts/application
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered admin/users/index.html.erb within layouts/application (5.8ms)
+  Rendered layouts/_navigation.html.erb (2.4ms)
+Completed 200 OK in 67ms (Views: 57.9ms | ActiveRecord: 3.8ms)
+
+
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "jimmy1@juno.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Jimmy"], ["last_name", "T1"], ["email", "jimmy1@juno.com"], ["encrypted_password", "$2a$11$UEfpVpLKYEkgLujQjNy1iukoBAOz23z9qtNQTAGC6cataQck5gy2G"], ["created_at", 2016-10-26 01:45:36 UTC], ["updated_at", 2016-10-26 01:45:36 UTC]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "jimmy2@juno.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Jimmy"], ["last_name", "T2"], ["email", "jimmy2@juno.com"], ["encrypted_password", "$2a$11$2COvYxVzxWT2xeEwVBLhW.nqZbAAyKb5higlQqFkelh5i2KTgqLrO"], ["created_at", 2016-10-26 01:45:47 UTC], ["updated_at", 2016-10-26 01:45:47 UTC]]
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "jimmy3@juno.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Jimmy"], ["last_name", "T3"], ["email", "jimmy3@juno.com"], ["encrypted_password", "$2a$11$1BLDQZYh2AoKDwbVuUPgDOvGyF1zPHg.kbQZxyL4VuVU1ROzGgCcS"], ["created_at", 2016-10-26 01:45:58 UTC], ["updated_at", 2016-10-26 01:45:58 UTC]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+Started DELETE "/admin/users/3" for ::1 at 2016-10-25 21:46:02 -0400
+Processing by Admin::UsersController#destroy as HTML
+  Parameters: {"authenticity_token"=>"7G1t4ECjo6fWI9ku1eAXPYmGz4GzgqoPZPO7G2nzHkfWA8QJKaDQ/OgHyVuczjsmFrgf0rCFEclmWFssnv7W4g==", "id"=>"3"}
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+Completed 404 Not Found in 6ms (ActiveRecord: 2.1ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=3):
+  
+app/controllers/admin/users_controller.rb:11:in `destroy'
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (4.1ms)
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (37.8ms)
+Started GET "/admin/users" for ::1 at 2016-10-25 21:46:06 -0400
+Processing by Admin::UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering admin/users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered admin/users/index.html.erb within layouts/application (1.9ms)
+  Rendered layouts/_navigation.html.erb (0.6ms)
+Completed 200 OK in 18ms (Views: 15.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/admin/users" for ::1 at 2016-10-25 21:46:26 -0400
+Processing by Admin::UsersController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering admin/users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered admin/users/index.html.erb within layouts/application (3.7ms)
+  Rendered layouts/_navigation.html.erb (1.5ms)
+Completed 200 OK in 28ms (Views: 23.9ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/admin/users" for ::1 at 2016-10-25 21:46:39 -0400
+Processing by Admin::UsersController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering admin/users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered admin/users/index.html.erb within layouts/application (12.1ms)
+Completed 500 Internal Server Error in 22ms (ActiveRecord: 1.1ms)
+
+
+  
+ActionView::Template::Error (undefined method `order_by' for #<User::ActiveRecord_Relation:0x007f8f9e304e60>):
+    1: <h1>All Users</h1>
+    2: 
+    3: <ul>
+    4:   <% @users.order_by(:desc).each do |user| %>
+    5: 
+    6:     <li><%= user.first_name %> <%= user.last_name %> (<%= link_to "Delete User", admin_user_path(user), method: :delete, id: "user-delete-#{user.id}", class: "user-delete", data: { confirm: "Are you sure you want to delete user #{user.first_name} #{user.last_name}?" } %>)</li>
+    7:   <% end %>
+  
+app/views/admin/users/index.html.erb:4:in `_app_views_admin_users_index_html_erb___2876637675925633413_70127449954920'
+app/controllers/admin/users_controller.rb:6:in `index'
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (4.7ms)
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (39.9ms)
+Started GET "/admin/users" for ::1 at 2016-10-25 21:46:53 -0400
+Processing by Admin::UsersController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering admin/users/index.html.erb within layouts/application
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."desc" ASC[0m
+  Rendered admin/users/index.html.erb within layouts/application (4.4ms)
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 3.1ms)
+
+
+  
+ActionView::Template::Error (PG::UndefinedColumn: ERROR:  column users.desc does not exist
+LINE 1: SELECT "users".* FROM "users" ORDER BY "users"."desc" ASC
+                                               ^
+: SELECT "users".* FROM "users" ORDER BY "users"."desc" ASC):
+    1: <h1>All Users</h1>
+    2: 
+    3: <ul>
+    4:   <% @users.order(:desc).each do |user| %>
+    5: 
+    6:     <li><%= user.first_name %> <%= user.last_name %> (<%= link_to "Delete User", admin_user_path(user), method: :delete, id: "user-delete-#{user.id}", class: "user-delete", data: { confirm: "Are you sure you want to delete user #{user.first_name} #{user.last_name}?" } %>)</li>
+    7:   <% end %>
+  
+app/views/admin/users/index.html.erb:4:in `_app_views_admin_users_index_html_erb___2876637675925633413_70127467203800'
+app/controllers/admin/users_controller.rb:6:in `index'
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (6.9ms)
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.8ms)
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (43.3ms)
+Started GET "/admin/users" for ::1 at 2016-10-25 21:47:28 -0400
+Processing by Admin::UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering admin/users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."first_name" DESC[0m
+  Rendered admin/users/index.html.erb within layouts/application (2.6ms)
+  Rendered layouts/_navigation.html.erb (1.0ms)
+Completed 200 OK in 22ms (Views: 19.4ms | ActiveRecord: 1.0ms)
+
+
+Started DELETE "/admin/users/delete" for ::1 at 2016-10-25 21:47:32 -0400
+Processing by Admin::UsersController#destroy as JSON
+  Parameters: {"id"=>"delete"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+Completed 404 Not Found in 5ms (ActiveRecord: 1.2ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=delete):
+  
+app/controllers/admin/users_controller.rb:11:in `destroy'
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.text.erb
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.text.erb
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.text.erb (0.5ms)
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (0.6ms)
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb (0.7ms)
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.text.erb (36.4ms)
+Started DELETE "/admin/users/11" for ::1 at 2016-10-25 21:47:36 -0400
+Processing by Admin::UsersController#destroy as HTML
+  Parameters: {"authenticity_token"=>"CO/kW55MIsBSS16R7ikT/8vxSHxMlCPocyUgzH5ujw4ygU2y909Rm2xvTuSnBz/kVM+YL0+TmC5xjsD7iWNHqw==", "id"=>"11"}
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 11]]
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  Rendering admin/users/index.html.erb within layouts/application
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."first_name" DESC[0m
+  Rendered admin/users/index.html.erb within layouts/application (3.7ms)
+  Rendered layouts/_navigation.html.erb (1.8ms)
+Completed 200 OK in 42ms (Views: 30.3ms | ActiveRecord: 5.7ms)
+
+
+Started DELETE "/admin/users/delete" for ::1 at 2016-10-25 21:47:42 -0400
+Processing by Admin::UsersController#destroy as JSON
+  Parameters: {"id"=>"delete"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+Completed 404 Not Found in 5ms (ActiveRecord: 1.0ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=delete):
+  
+app/controllers/admin/users_controller.rb:11:in `destroy'
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.text.erb
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.text.erb
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.text.erb (0.6ms)
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (1.2ms)
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb (0.8ms)
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.text.erb (36.8ms)
+Started DELETE "/admin/users/10" for ::1 at 2016-10-25 21:47:49 -0400
+Processing by Admin::UsersController#destroy as HTML
+  Parameters: {"authenticity_token"=>"2GPRD574uyao/GBykUxJgXEkG2aohx/I2+Xy0uynCIPiDXjm9/vIfZbYcAfYYmWa7hrLNauApA7ZThLlG6rAJg==", "id"=>"10"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 10]]
+  [1m[35m (6.7ms)[0m  [1m[35mCOMMIT[0m
+  Rendering admin/users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."first_name" DESC[0m
+  Rendered admin/users/index.html.erb within layouts/application (4.4ms)
+  Rendered layouts/_navigation.html.erb (2.1ms)
+Completed 200 OK in 55ms (Views: 39.4ms | ActiveRecord: 9.6ms)
+
+
+Started DELETE "/admin/users/delete" for ::1 at 2016-10-25 21:48:19 -0400
+Processing by Admin::UsersController#destroy as JSON
+  Parameters: {"id"=>"delete"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+Completed 404 Not Found in 4ms (ActiveRecord: 0.9ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=delete):
+  
+app/controllers/admin/users_controller.rb:11:in `destroy'
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.text.erb
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.text.erb
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.text.erb (0.6ms)
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (0.6ms)
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb (1.0ms)
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.text.erb (38.6ms)
+Started DELETE "/admin/users/9" for ::1 at 2016-10-25 21:48:21 -0400
+Processing by Admin::UsersController#destroy as HTML
+  Parameters: {"authenticity_token"=>"T5uuPq096H2WiidE1LOJyRYnzY62ePj216T9mCrmMiV19QfXxD6bJqiuNzGdnaXSiRkd3bV/QzDVDx2v3ev6gA==", "id"=>"9"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 9]]
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  Rendering admin/users/index.html.erb within layouts/application
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."first_name" DESC[0m
+  Rendered admin/users/index.html.erb within layouts/application (5.9ms)
+  Rendered layouts/_navigation.html.erb (1.4ms)
+Completed 200 OK in 97ms (Views: 85.3ms | ActiveRecord: 4.7ms)
+
+
+Started DELETE "/admin/users/9" for ::1 at 2016-10-25 21:48:27 -0400
+Processing by Admin::UsersController#destroy as HTML
+  Parameters: {"authenticity_token"=>"T5uuPq096H2WiidE1LOJyRYnzY62ePj216T9mCrmMiV19QfXxD6bJqiuNzGdnaXSiRkd3bV/QzDVDx2v3ev6gA==", "id"=>"9"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+Completed 404 Not Found in 3ms (ActiveRecord: 0.8ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=9):
+  
+app/controllers/admin/users_controller.rb:11:in `destroy'
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.6ms)
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.4ms)
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.6ms)
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (38.3ms)
+Started GET "/admin/users" for ::1 at 2016-10-25 21:48:31 -0400
+Processing by Admin::UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering admin/users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."first_name" DESC[0m
+  Rendered admin/users/index.html.erb within layouts/application (1.6ms)
+  Rendered layouts/_navigation.html.erb (0.7ms)
+Completed 200 OK in 16ms (Views: 14.1ms | ActiveRecord: 0.8ms)
+
+
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "jimmy3@juno.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Jimmy"], ["last_name", "T3"], ["email", "jimmy3@juno.com"], ["encrypted_password", "$2a$11$vlUaeJRo/ODdDvI4W3NAvOS9sv2f.QkEdLpf8TaSKaxcJmWGapH9e"], ["created_at", 2016-10-26 01:48:38 UTC], ["updated_at", 2016-10-26 01:48:38 UTC]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "jimmy2@juno.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Jimmy"], ["last_name", "T2"], ["email", "jimmy2@juno.com"], ["encrypted_password", "$2a$11$9.Kd259yvkYmiNKgofiTVeiT5U87lZ8sX5BG8iVZv5pVA2GW.eH6."], ["created_at", 2016-10-26 01:48:40 UTC], ["updated_at", 2016-10-26 01:48:40 UTC]]
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "jimmy1@juno.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Jimmy"], ["last_name", "T1"], ["email", "jimmy1@juno.com"], ["encrypted_password", "$2a$11$x.OQjQzhl7y6B3R0/7T14.ELnEx6.rFCs5JtKinMf4Q15RajMw9Z."], ["created_at", 2016-10-26 01:48:46 UTC], ["updated_at", 2016-10-26 01:48:46 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/admin/users" for ::1 at 2016-10-25 21:48:49 -0400
+Processing by Admin::UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering admin/users/index.html.erb within layouts/application
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."first_name" DESC[0m
+  Rendered admin/users/index.html.erb within layouts/application (3.2ms)
+  Rendered layouts/_navigation.html.erb (0.6ms)
+Completed 200 OK in 19ms (Views: 15.9ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/admin/users" for ::1 at 2016-10-25 21:48:51 -0400
+Processing by Admin::UsersController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering admin/users/index.html.erb within layouts/application
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."first_name" DESC[0m
+  Rendered admin/users/index.html.erb within layouts/application (4.7ms)
+  Rendered layouts/_navigation.html.erb (1.4ms)
+Completed 200 OK in 25ms (Views: 21.7ms | ActiveRecord: 1.5ms)
+
+
+Started DELETE "/admin/users/delete" for ::1 at 2016-10-25 21:48:56 -0400
+Processing by Admin::UsersController#destroy as JSON
+  Parameters: {"id"=>"delete"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+Completed 404 Not Found in 4ms (ActiveRecord: 0.8ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=delete):
+  
+app/controllers/admin/users_controller.rb:11:in `destroy'
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.text.erb
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.text.erb
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.text.erb (0.9ms)
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (0.5ms)
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb (0.7ms)
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.text.erb (38.4ms)
+Started DELETE "/admin/users/12" for ::1 at 2016-10-25 21:48:57 -0400
+Processing by Admin::UsersController#destroy as HTML
+  Parameters: {"authenticity_token"=>"I/3RE10ERbXk/QImKj3IDsqTTE36Y2dr360GxKB6NQMZk3j6NAc27trZElNjE+QVVa2cHvlk3K3dBubzV3f9pg==", "id"=>"12"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[35m (1.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.4ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 12]]
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+  Rendering admin/users/index.html.erb within layouts/application
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."first_name" DESC[0m
+  Rendered admin/users/index.html.erb within layouts/application (4.9ms)
+  Rendered layouts/_navigation.html.erb (1.4ms)
+Completed 200 OK in 47ms (Views: 33.2ms | ActiveRecord: 7.5ms)
+
+
+Started DELETE "/admin/users/12" for ::1 at 2016-10-25 22:00:51 -0400
+Processing by Admin::UsersController#destroy as HTML
+  Parameters: {"authenticity_token"=>"I/3RE10ERbXk/QImKj3IDsqTTE36Y2dr360GxKB6NQMZk3j6NAc27trZElNjE+QVVa2cHvlk3K3dBubzV3f9pg==", "id"=>"12"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+Completed 404 Not Found in 17ms (ActiveRecord: 2.8ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=12):
+  
+app/controllers/admin/users_controller.rb:11:in `destroy'
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.7ms)
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (36.9ms)
+Started DELETE "/admin/users/12" for ::1 at 2016-10-25 22:00:52 -0400
+Processing by Admin::UsersController#destroy as HTML
+  Parameters: {"authenticity_token"=>"I/3RE10ERbXk/QImKj3IDsqTTE36Y2dr360GxKB6NQMZk3j6NAc27trZElNjE+QVVa2cHvlk3K3dBubzV3f9pg==", "id"=>"12"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+Completed 404 Not Found in 7ms (ActiveRecord: 1.2ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=12):
+  
+app/controllers/admin/users_controller.rb:11:in `destroy'
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (5.6ms)
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (45.4ms)
+Started GET "/admin/users" for ::1 at 2016-10-25 22:00:55 -0400
+Processing by Admin::UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering admin/users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."first_name" DESC[0m
+  Rendered admin/users/index.html.erb within layouts/application (2.0ms)
+  Rendered layouts/_navigation.html.erb (0.8ms)
+Completed 200 OK in 64ms (Views: 61.3ms | ActiveRecord: 0.8ms)
+
+
+Started DELETE "/admin/users/delete" for ::1 at 2016-10-25 22:00:57 -0400
+Processing by Admin::UsersController#destroy as JSON
+  Parameters: {"id"=>"delete"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+Completed 404 Not Found in 5ms (ActiveRecord: 1.2ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=delete):
+  
+app/controllers/admin/users_controller.rb:11:in `destroy'
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.text.erb
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.text.erb
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.text.erb (1.6ms)
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (0.6ms)
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb (0.9ms)
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.text.erb (45.7ms)
+Started DELETE "/admin/users/14" for ::1 at 2016-10-25 22:00:59 -0400
+Processing by Admin::UsersController#destroy as HTML
+  Parameters: {"authenticity_token"=>"0iA3nREchq+Q9tuErv3PNgg5CEzI/VZyOmTUvdlWGbfoTp50eB/19K7Sy/Hn0+MtlwfYH8v67bQ4zzSKLlvREg==", "id"=>"14"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 14]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  Rendering admin/users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."first_name" DESC[0m
+  Rendered admin/users/index.html.erb within layouts/application (2.9ms)
+  Rendered layouts/_navigation.html.erb (1.4ms)
+Completed 200 OK in 37ms (Views: 31.3ms | ActiveRecord: 2.9ms)
+
+
+Started DELETE "/admin/users/14" for ::1 at 2016-10-25 22:02:32 -0400
+Processing by Admin::UsersController#destroy as HTML
+  Parameters: {"authenticity_token"=>"0iA3nREchq+Q9tuErv3PNgg5CEzI/VZyOmTUvdlWGbfoTp50eB/19K7Sy/Hn0+MtlwfYH8v67bQ4zzSKLlvREg==", "id"=>"14"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+Completed 404 Not Found in 3ms (ActiveRecord: 0.7ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=14):
+  
+app/controllers/admin/users_controller.rb:11:in `destroy'
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (4.3ms)
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.6ms)
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (37.8ms)
+Started GET "/admin/users" for ::1 at 2016-10-25 22:02:35 -0400
+Processing by Admin::UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering admin/users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."first_name" DESC[0m
+  Rendered admin/users/index.html.erb within layouts/application (2.2ms)
+  Rendered layouts/_navigation.html.erb (1.1ms)
+Completed 200 OK in 67ms (Views: 65.4ms | ActiveRecord: 0.7ms)
+
+
+Started DELETE "/admin/users/delete" for ::1 at 2016-10-25 22:03:25 -0400
+Processing by Admin::UsersController#destroy as JSON
+  Parameters: {"id"=>"delete"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+Completed 404 Not Found in 5ms (ActiveRecord: 1.6ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=delete):
+  
+app/controllers/admin/users_controller.rb:11:in `destroy'
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.text.erb
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.text.erb
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.text.erb (0.6ms)
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (0.6ms)
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb (1.3ms)
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.text.erb (42.7ms)
+Started GET "/admin/users" for ::1 at 2016-10-25 22:03:28 -0400
+Processing by Admin::UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering admin/users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."first_name" DESC[0m
+  Rendered admin/users/index.html.erb within layouts/application (1.7ms)
+  Rendered layouts/_navigation.html.erb (1.0ms)
+Completed 200 OK in 62ms (Views: 60.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/admin/users" for ::1 at 2016-10-25 22:03:36 -0400
+Processing by Admin::UsersController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering admin/users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."first_name" DESC[0m
+  Rendered admin/users/index.html.erb within layouts/application (2.2ms)
+  Rendered layouts/_navigation.html.erb (0.6ms)
+Completed 200 OK in 18ms (Views: 15.4ms | ActiveRecord: 1.1ms)
+
+
+Started DELETE "/admin/users/13" for ::1 at 2016-10-25 22:03:52 -0400
+Processing by Admin::UsersController#destroy as JSON
+  Parameters: {"id"=>"13"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 13]]
+  [1m[35m (1.6ms)[0m  [1m[35mCOMMIT[0m
+  Rendering admin/users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."first_name" DESC[0m
+  Rendered admin/users/index.html.erb within layouts/application (1.9ms)
+  Rendered layouts/_navigation.html.erb (2.1ms)
+Completed 200 OK in 64ms (Views: 53.7ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/admin/users" for ::1 at 2016-10-25 22:08:26 -0400
+Processing by Admin::UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering admin/users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."first_name" DESC[0m
+  Rendered admin/users/index.html.erb within layouts/application (1.6ms)
+  Rendered layouts/_navigation.html.erb (0.8ms)
+Completed 200 OK in 65ms (Views: 62.8ms | ActiveRecord: 0.8ms)
+
+
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "jimmy1@juno.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Jimmy"], ["last_name", "T1"], ["email", "jimmy1@juno.com"], ["encrypted_password", "$2a$11$APQJzkm2akWpZ5xEAA0eG.x3zXCv.rMHW/5kyl9j7eZm7/aDEpWAW"], ["created_at", 2016-10-26 02:08:34 UTC], ["updated_at", 2016-10-26 02:08:34 UTC]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "jimmy2@juno.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Jimmy"], ["last_name", "T2"], ["email", "jimmy2@juno.com"], ["encrypted_password", "$2a$11$J6RnYQuvJ/WPEIURFLHzx.TMIfbhlIeXXhnRM5fCXxdWQrxUYIRFW"], ["created_at", 2016-10-26 02:08:36 UTC], ["updated_at", 2016-10-26 02:08:36 UTC]]
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "jimmy3@juno.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Jimmy"], ["last_name", "T3"], ["email", "jimmy3@juno.com"], ["encrypted_password", "$2a$11$8grAHv8s.7OJ5bKmZcParukUUpzpKBWRQ0Wq0Oc8.AMwfKZgKL0bK"], ["created_at", 2016-10-26 02:08:38 UTC], ["updated_at", 2016-10-26 02:08:38 UTC]]
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/admin/users" for ::1 at 2016-10-25 22:08:39 -0400
+Processing by Admin::UsersController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering admin/users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."first_name" DESC[0m
+  Rendered admin/users/index.html.erb within layouts/application (2.3ms)
+  Rendered layouts/_navigation.html.erb (0.7ms)
+Completed 200 OK in 18ms (Views: 14.6ms | ActiveRecord: 0.9ms)
+
+
+Started DELETE "/admin/users/15" for ::1 at 2016-10-25 22:08:42 -0400
+Processing by Admin::UsersController#destroy as JSON
+  Parameters: {"id"=>"15"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 15]]
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  Rendering admin/users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."first_name" DESC[0m
+  Rendered admin/users/index.html.erb within layouts/application (2.2ms)
+  Rendered layouts/_navigation.html.erb (1.0ms)
+Completed 200 OK in 62ms (Views: 54.7ms | ActiveRecord: 2.9ms)
+
+
+Started DELETE "/admin/users/15" for ::1 at 2016-10-25 22:08:45 -0400
+Processing by Admin::UsersController#destroy as JSON
+  Parameters: {"id"=>"15"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+Completed 404 Not Found in 3ms (ActiveRecord: 0.8ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=15):
+  
+app/controllers/admin/users_controller.rb:11:in `destroy'
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.text.erb
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.text.erb
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.text.erb (0.9ms)
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (0.9ms)
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb (0.7ms)
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.text.erb (37.4ms)
+Started DELETE "/admin/users/15" for ::1 at 2016-10-25 22:08:46 -0400
+Processing by Admin::UsersController#destroy as HTML
+  Parameters: {"authenticity_token"=>"aNaDOIJVHXHwjSaLwmLeAIJWSgM+pEoHd5pcB12IwU9SuCrR61ZuKs6pNv6LTPIbHWiaUD2j8cF1MbwwqoUJ6g==", "id"=>"15"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+Completed 404 Not Found in 5ms (ActiveRecord: 1.2ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=15):
+  
+app/controllers/admin/users_controller.rb:11:in `destroy'
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (4.8ms)
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.4ms)
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (46.6ms)
+Started GET "/admin/users" for ::1 at 2016-10-25 22:08:51 -0400
+Processing by Admin::UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering admin/users/index.html.erb within layouts/application
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."first_name" DESC[0m
+  Rendered admin/users/index.html.erb within layouts/application (3.6ms)
+  Rendered layouts/_navigation.html.erb (0.8ms)
+Completed 200 OK in 19ms (Views: 16.1ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/admin/users" for ::1 at 2016-10-25 22:08:54 -0400
+Processing by Admin::UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering admin/users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."first_name" DESC[0m
+  Rendered admin/users/index.html.erb within layouts/application (2.9ms)
+  Rendered layouts/_navigation.html.erb (0.7ms)
+Completed 200 OK in 20ms (Views: 18.1ms | ActiveRecord: 0.8ms)
+
+
+Started DELETE "/admin/users/16" for ::1 at 2016-10-25 22:08:57 -0400
+Processing by Admin::UsersController#destroy as JSON
+  Parameters: {"id"=>"16"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 16]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  Rendering admin/users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."first_name" DESC[0m
+  Rendered admin/users/index.html.erb within layouts/application (2.1ms)
+  Rendered layouts/_navigation.html.erb (1.9ms)
+Completed 200 OK in 49ms (Views: 41.9ms | ActiveRecord: 2.7ms)
+
+
+Started DELETE "/admin/users/16" for ::1 at 2016-10-25 22:08:58 -0400
+Processing by Admin::UsersController#destroy as HTML
+  Parameters: {"authenticity_token"=>"a2qrChSAwNeqpSVMVWJRnr772CewEGgRoMnHCP0jCnBRBALjfYOzjJSBNTkcTH2FIcUIdLMX09eiYic/Ci7C1Q==", "id"=>"16"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+Completed 404 Not Found in 3ms (ActiveRecord: 0.7ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=16):
+  
+app/controllers/admin/users_controller.rb:11:in `destroy'
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (4.3ms)
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (38.6ms)
+Started GET "/admin/users" for ::1 at 2016-10-25 22:09:21 -0400
+Processing by Admin::UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering admin/users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."first_name" DESC[0m
+  Rendered admin/users/index.html.erb within layouts/application (3.0ms)
+  Rendered layouts/_navigation.html.erb (1.0ms)
+Completed 200 OK in 67ms (Views: 65.1ms | ActiveRecord: 0.8ms)
+
+
+Started DELETE "/admin/users/17" for ::1 at 2016-10-25 22:09:24 -0400
+Processing by Admin::UsersController#destroy as JSON
+  Parameters: {"id"=>"17"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 17]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  Rendering admin/users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."first_name" DESC[0m
+  Rendered admin/users/index.html.erb within layouts/application (2.3ms)
+  Rendered layouts/_navigation.html.erb (1.8ms)
+Completed 200 OK in 50ms (Views: 42.1ms | ActiveRecord: 3.4ms)
+
+
+Started DELETE "/admin/users/17" for ::1 at 2016-10-25 22:09:28 -0400
+Processing by Admin::UsersController#destroy as JSON
+  Parameters: {"id"=>"17"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+Completed 404 Not Found in 3ms (ActiveRecord: 0.7ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=17):
+  
+app/controllers/admin/users_controller.rb:11:in `destroy'
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.text.erb
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.text.erb
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.text.erb (0.5ms)
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (0.5ms)
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb (0.7ms)
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.text.erb (36.4ms)
+Started GET "/admin/users" for ::1 at 2016-10-25 22:09:30 -0400
+Processing by Admin::UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering admin/users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."first_name" DESC[0m
+  Rendered admin/users/index.html.erb within layouts/application (2.4ms)
+  Rendered layouts/_navigation.html.erb (0.8ms)
+Completed 200 OK in 18ms (Views: 16.2ms | ActiveRecord: 0.8ms)
+
+
+Started DELETE "/admin/users/8" for ::1 at 2016-10-25 22:09:33 -0400
+Processing by Admin::UsersController#destroy as JSON
+  Parameters: {"id"=>"8"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 8]]
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  Rendering admin/users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."first_name" DESC[0m
+  Rendered admin/users/index.html.erb within layouts/application (2.0ms)
+  Rendered layouts/_navigation.html.erb (0.9ms)
+Completed 200 OK in 57ms (Views: 48.4ms | ActiveRecord: 3.2ms)
+
+
+Started DELETE "/admin/users/8" for ::1 at 2016-10-25 22:09:34 -0400
+Processing by Admin::UsersController#destroy as HTML
+  Parameters: {"authenticity_token"=>"qJo+Pl6JNDwl2bP0ix+fN3eflMX1/uX7iyobiF5vxEqS9JfXN4pHZxv9o4HCMbMs6KFElvb5Xj2Jgfu/qWIM7w==", "id"=>"8"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+Redirected to http://localhost:3000/users/sign_in
+Filter chain halted as :authenticate_admin! rendered or redirected
+Completed 302 Found in 4ms (ActiveRecord: 0.7ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2016-10-25 22:09:34 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.9ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (5.7ms)
+  Rendered layouts/_navigation.html.erb (0.8ms)
+Completed 200 OK in 21ms (Views: 20.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for ::1 at 2016-10-25 22:09:46 -0400
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"J2/uo0q6K32mBNQaeRuzg9ZyeT6/EfOojFRUGQjEw0gdAUdKI7lYJpggxG8wNZ+YSUypbbwWSG6O/7Qu/8kL7Q==", "user"=>{"email"=>"micahbales@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log In"}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "micahbales@gmail.com"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 5ms (ActiveRecord: 1.3ms)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"J2/uo0q6K32mBNQaeRuzg9ZyeT6/EfOojFRUGQjEw0gdAUdKI7lYJpggxG8wNZ+YSUypbbwWSG6O/7Qu/8kL7Q==", "user"=>{"email"=>"micahbales@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log In"}
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (0.7ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (3.6ms)
+  Rendered layouts/_navigation.html.erb (0.7ms)
+Completed 200 OK in 135ms (Views: 16.3ms | ActiveRecord: 0.0ms)
+
+
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "micahbales@gmail.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "encrypted_password", "created_at", "updated_at", "admin") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["first_name", "Micah"], ["last_name", "Bales"], ["email", "micahbales@gmail.com"], ["encrypted_password", "$2a$11$QuL/xipF7gwTiybO4r0EMu9YlNEx3yRplm3J9b7oPFjW5HUR8ZnMy"], ["created_at", 2016-10-26 02:10:24 UTC], ["updated_at", 2016-10-26 02:10:24 UTC], ["admin", true]]
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "jimmy1@juno.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Jimmy"], ["last_name", "T1"], ["email", "jimmy1@juno.com"], ["encrypted_password", "$2a$11$vrpXhx1W0XEz/Ra8d5HHguquZ7LQ5X8xTNp7vhndI.DbpC9L4VFCa"], ["created_at", 2016-10-26 02:10:29 UTC], ["updated_at", 2016-10-26 02:10:29 UTC]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "jimmy2@juno.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Jimmy"], ["last_name", "T2"], ["email", "jimmy2@juno.com"], ["encrypted_password", "$2a$11$FCE3z8ml9ix1bjvjWRSjN.7uxUUrrt9Zc1yyn6bd64LogEsw6AVkG"], ["created_at", 2016-10-26 02:10:35 UTC], ["updated_at", 2016-10-26 02:10:35 UTC]]
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "jimmy3@juno.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Jimmy"], ["last_name", "T3"], ["email", "jimmy3@juno.com"], ["encrypted_password", "$2a$11$AFHfbVS4CaxPvFv4tmFc8uDT6LKIA2PuCFSyfTaCZmx/qSnM6.Gde"], ["created_at", 2016-10-26 02:10:37 UTC], ["updated_at", 2016-10-26 02:10:37 UTC]]
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+Started POST "/users/sign_in" for ::1 at 2016-10-25 22:10:44 -0400
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"e+mtLiAe+zh51nmaS0Uv0kYOFfTrXwl5Y8vSYKfbOqhBhwTHSR2IY0fyae8CawPJ2TDFp+hYsr9hYDJXUNbyDQ==", "user"=>{"email"=>"micahbales@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log In"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "micahbales@gmail.com"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = $1, "last_sign_in_at" = $2, "current_sign_in_ip" = $3, "last_sign_in_ip" = $4, "sign_in_count" = $5, "updated_at" = $6 WHERE "users"."id" = $7[0m  [["current_sign_in_at", 2016-10-26 02:10:44 UTC], ["last_sign_in_at", 2016-10-26 02:10:44 UTC], ["current_sign_in_ip", "::1/128"], ["last_sign_in_ip", "::1/128"], ["sign_in_count", 1], ["updated_at", 2016-10-26 02:10:44 UTC], ["id", 18]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 133ms (ActiveRecord: 2.4ms)
+
+
+Started GET "/" for ::1 at 2016-10-25 22:10:44 -0400
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mStation Load (0.5ms)[0m  [1m[34mSELECT "stations".* FROM "stations"[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  Rendered home/index.html.erb within layouts/application (9.3ms)
+  Rendered layouts/_navigation.html.erb (0.6ms)
+Completed 200 OK in 24ms (Views: 18.5ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/admin/users" for ::1 at 2016-10-25 22:10:48 -0400
+Processing by Admin::UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  Rendering admin/users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."first_name" DESC[0m
+  Rendered admin/users/index.html.erb within layouts/application (2.3ms)
+  Rendered layouts/_navigation.html.erb (0.6ms)
+Completed 200 OK in 17ms (Views: 14.9ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/admin/users" for ::1 at 2016-10-25 22:10:50 -0400
+Processing by Admin::UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  Rendering admin/users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."first_name" DESC[0m
+  Rendered admin/users/index.html.erb within layouts/application (2.4ms)
+  Rendered layouts/_navigation.html.erb (0.6ms)
+Completed 200 OK in 17ms (Views: 15.2ms | ActiveRecord: 1.0ms)
+
+
+Started DELETE "/admin/users/21" for ::1 at 2016-10-25 22:10:52 -0400
+Processing by Admin::UsersController#destroy as JSON
+  Parameters: {"id"=>"21"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 21]]
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  Rendering admin/users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."first_name" DESC[0m
+  Rendered admin/users/index.html.erb within layouts/application (2.5ms)
+  Rendered layouts/_navigation.html.erb (1.2ms)
+Completed 200 OK in 55ms (Views: 47.6ms | ActiveRecord: 3.3ms)
+
+
+Started DELETE "/admin/users/21" for ::1 at 2016-10-25 22:10:54 -0400
+Processing by Admin::UsersController#destroy as HTML
+  Parameters: {"authenticity_token"=>"dXsgzUZAOBBvLuPSAdJAtE6flQzAQInL41LJ1bcFL5dBzjReDYz9odH1DJERoaJ+cqaH9bjt2qSHKfqLGWDfAw==", "id"=>"21"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+Completed 404 Not Found in 3ms (ActiveRecord: 0.6ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=21):
+  
+app/controllers/admin/users_controller.rb:11:in `destroy'
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (4.4ms)
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.4ms)
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (40.3ms)
+Started GET "/admin/users" for ::1 at 2016-10-25 22:12:43 -0400
+Processing by Admin::UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  Rendering admin/users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."first_name" DESC[0m
+  Rendered admin/users/index.html.erb within layouts/application (2.8ms)
+  Rendered layouts/_navigation.html.erb (1.6ms)
+Completed 200 OK in 74ms (Views: 71.4ms | ActiveRecord: 1.0ms)
+
+
+Started DELETE "/admin/users/20" for ::1 at 2016-10-25 22:12:44 -0400
+Processing by Admin::UsersController#destroy as JSON
+  Parameters: {"id"=>"20"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 20]]
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  Rendering admin/users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."first_name" DESC[0m
+  Rendered admin/users/index.html.erb within layouts/application (2.9ms)
+  Rendered layouts/_navigation.html.erb (1.2ms)
+Completed 200 OK in 59ms (Views: 51.9ms | ActiveRecord: 3.0ms)
+
+
+Started DELETE "/admin/users/20" for ::1 at 2016-10-25 22:12:47 -0400
+Processing by Admin::UsersController#destroy as JSON
+  Parameters: {"id"=>"20"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+Completed 404 Not Found in 4ms (ActiveRecord: 0.8ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=20):
+  
+app/controllers/admin/users_controller.rb:11:in `destroy'
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.text.erb
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.text.erb
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.text.erb (0.6ms)
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (0.7ms)
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb (0.7ms)
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.text.erb (34.7ms)
+Started GET "/admin/users" for ::1 at 2016-10-25 22:12:50 -0400
+Processing by Admin::UsersController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  Rendering admin/users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."first_name" DESC[0m
+  Rendered admin/users/index.html.erb within layouts/application (2.4ms)
+  Rendered layouts/_navigation.html.erb (0.7ms)
+Completed 200 OK in 19ms (Views: 15.8ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/admin/users" for ::1 at 2016-10-25 22:16:32 -0400
+Processing by Admin::UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  Rendering admin/users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."first_name" DESC[0m
+  Rendered admin/users/index.html.erb within layouts/application (2.4ms)
+  Rendered layouts/_navigation.html.erb (0.8ms)
+Completed 200 OK in 67ms (Views: 64.7ms | ActiveRecord: 0.9ms)
+
+
+Started DELETE "/admin/users/19" for ::1 at 2016-10-25 22:16:34 -0400
+Processing by Admin::UsersController#destroy as JSON
+  Parameters: {"id"=>"19"}
+  [1m[36mUser Load (11.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mUser Load (17.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 19]]
+  [1m[35m (6.2ms)[0m  [1m[35mCOMMIT[0m
+  Rendering admin/users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."first_name" DESC[0m
+  Rendered admin/users/index.html.erb within layouts/application (3.2ms)
+  Rendered layouts/_navigation.html.erb (0.9ms)
+Completed 200 OK in 130ms (Views: 88.2ms | ActiveRecord: 35.7ms)
+
+
+Started DELETE "/admin/users/19" for ::1 at 2016-10-25 22:16:35 -0400
+Processing by Admin::UsersController#destroy as HTML
+  Parameters: {"authenticity_token"=>"C376rezCjOMNMsbpp+V7YzlQ9Vp1Z5GcFwProxLoXSI/y+4+pw5JUrPpKaq3lpmpBWnnow3KwvNzeNj9vI2ttg==", "id"=>"19"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+Completed 404 Not Found in 6ms (ActiveRecord: 1.4ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=19):
+  
+app/controllers/admin/users_controller.rb:11:in `destroy'
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.5ms)
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (39.6ms)
+Started GET "/admin/users" for ::1 at 2016-10-25 22:16:40 -0400
+Processing by Admin::UsersController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  Rendering admin/users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."first_name" DESC[0m
+  Rendered admin/users/index.html.erb within layouts/application (1.7ms)
+  Rendered layouts/_navigation.html.erb (1.1ms)
+Completed 200 OK in 21ms (Views: 17.2ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/admin/users" for ::1 at 2016-10-25 22:21:23 -0400
+Processing by Admin::UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  Rendering admin/users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."first_name" DESC[0m
+  Rendered admin/users/index.html.erb within layouts/application (1.9ms)
+  Rendered layouts/_navigation.html.erb (1.4ms)
+Completed 200 OK in 67ms (Views: 63.9ms | ActiveRecord: 0.8ms)
+
+
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "jimmy3@juno.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Jimmy"], ["last_name", "T3"], ["email", "jimmy3@juno.com"], ["encrypted_password", "$2a$11$0G.FKraVHdmxST3BQ.CsiuucQ5TNl2asq4ocfM4pyCFWgx0M1G81e"], ["created_at", 2016-10-26 02:21:27 UTC], ["updated_at", 2016-10-26 02:21:27 UTC]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "jimmy2@juno.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Jimmy"], ["last_name", "T2"], ["email", "jimmy2@juno.com"], ["encrypted_password", "$2a$11$9dZ4sv4eHRtetumDPRxrjOsKJUavyaUeMzlxnu26Zq7Ah.sk8q96q"], ["created_at", 2016-10-26 02:21:28 UTC], ["updated_at", 2016-10-26 02:21:28 UTC]]
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "jimmy1@juno.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Jimmy"], ["last_name", "T1"], ["email", "jimmy1@juno.com"], ["encrypted_password", "$2a$11$Fbqj8M7TlqXOoeqM2QjN.u7eaYr1WJJl48.fk4oXGbbIca9O.t5Ki"], ["created_at", 2016-10-26 02:21:30 UTC], ["updated_at", 2016-10-26 02:21:30 UTC]]
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/admin/users" for ::1 at 2016-10-25 22:21:32 -0400
+Processing by Admin::UsersController#index as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  Rendering admin/users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."first_name" DESC[0m
+  Rendered admin/users/index.html.erb within layouts/application (2.6ms)
+  Rendered layouts/_navigation.html.erb (0.7ms)
+Completed 200 OK in 21ms (Views: 16.7ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/admin/users" for ::1 at 2016-10-25 22:21:33 -0400
+Processing by Admin::UsersController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  Rendering admin/users/index.html.erb within layouts/application
+  [1m[36mUser Load (3.9ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."first_name" DESC[0m
+  Rendered admin/users/index.html.erb within layouts/application (8.0ms)
+  Rendered layouts/_navigation.html.erb (2.5ms)
+Completed 200 OK in 43ms (Views: 35.9ms | ActiveRecord: 4.5ms)
+
+
+Started DELETE "/admin/users/24" for ::1 at 2016-10-25 22:21:34 -0400
+Processing by Admin::UsersController#destroy as JSON
+  Parameters: {"id"=>"24"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 24], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 24]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  Rendering admin/users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."first_name" DESC[0m
+  Rendered admin/users/index.html.erb within layouts/application (3.7ms)
+  Rendered layouts/_navigation.html.erb (2.6ms)
+Completed 200 OK in 82ms (Views: 73.5ms | ActiveRecord: 2.4ms)
+
+
+Started DELETE "/admin/users/24" for ::1 at 2016-10-25 22:21:35 -0400
+Processing by Admin::UsersController#destroy as HTML
+  Parameters: {"authenticity_token"=>"CHWEFZen63By1TDupnUdzJFFMH4ZQt2rjpLUjmQxqzE8wJCG3GsuwcwO3622Bv8GrXwih2HvjsTq6efQylRbpQ==", "id"=>"24"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 24], ["LIMIT", 1]]
+Completed 404 Not Found in 5ms (ActiveRecord: 1.1ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=24):
+  
+app/controllers/admin/users_controller.rb:11:in `destroy'
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.3ms)
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (42.1ms)
+Started GET "/admin/users" for ::1 at 2016-10-25 22:21:42 -0400
+Processing by Admin::UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  Rendering admin/users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."first_name" DESC[0m
+  Rendered admin/users/index.html.erb within layouts/application (2.3ms)
+  Rendered layouts/_navigation.html.erb (0.7ms)
+Completed 200 OK in 17ms (Views: 15.0ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/admin/users" for ::1 at 2016-10-25 22:28:45 -0400
+Processing by Admin::UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  Rendering admin/users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."first_name" DESC[0m
+  Rendered admin/users/index.html.erb within layouts/application (2.1ms)
+  Rendered layouts/_navigation.html.erb (1.8ms)
+Completed 200 OK in 81ms (Views: 78.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/admin/users" for ::1 at 2016-10-25 22:28:46 -0400
+Processing by Admin::UsersController#index as HTML
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  Rendering admin/users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."first_name" DESC[0m
+  Rendered admin/users/index.html.erb within layouts/application (3.2ms)
+  Rendered layouts/_navigation.html.erb (1.9ms)
+Completed 200 OK in 54ms (Views: 49.3ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/admin/users" for ::1 at 2016-10-25 22:28:47 -0400
+Processing by Admin::UsersController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  Rendering admin/users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."first_name" DESC[0m
+  Rendered admin/users/index.html.erb within layouts/application (5.6ms)
+  Rendered layouts/_navigation.html.erb (1.5ms)
+Completed 200 OK in 53ms (Views: 48.7ms | ActiveRecord: 1.2ms)
+
+
+Started DELETE "/admin/users/23" for ::1 at 2016-10-25 22:29:57 -0400
+Processing by Admin::UsersController#destroy as JSON
+  Parameters: {"id"=>"23"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 23]]
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+  Rendering admin/users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."first_name" DESC[0m
+  Rendered admin/users/index.html.erb within layouts/application (4.0ms)
+  Rendered layouts/_navigation.html.erb (1.2ms)
+Completed 200 OK in 135ms (Views: 125.2ms | ActiveRecord: 5.0ms)
+
+
+Started GET "/admin/users" for ::1 at 2016-10-25 22:30:00 -0400
+Processing by Admin::UsersController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  Rendering admin/users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."first_name" DESC[0m
+  Rendered admin/users/index.html.erb within layouts/application (2.1ms)
+  Rendered layouts/_navigation.html.erb (1.0ms)
+Completed 200 OK in 19ms (Views: 16.2ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/admin/users" for ::1 at 2016-10-25 22:31:52 -0400
+Processing by Admin::UsersController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  Rendering admin/users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."first_name" DESC[0m
+  Rendered admin/users/index.html.erb within layouts/application (2.0ms)
+  Rendered layouts/_navigation.html.erb (0.7ms)
+Completed 200 OK in 20ms (Views: 16.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/admin/users" for ::1 at 2016-10-25 22:32:37 -0400
+Processing by Admin::UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  Rendering admin/users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."first_name" DESC[0m
+  Rendered admin/users/index.html.erb within layouts/application (2.3ms)
+  Rendered layouts/_navigation.html.erb (1.9ms)
+Completed 200 OK in 25ms (Views: 21.9ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/admin/users" for ::1 at 2016-10-25 22:32:39 -0400
+Processing by Admin::UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  Rendering admin/users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."first_name" DESC[0m
+  Rendered admin/users/index.html.erb within layouts/application (2.2ms)
+  Rendered layouts/_navigation.html.erb (1.7ms)
+Completed 200 OK in 25ms (Views: 22.4ms | ActiveRecord: 0.8ms)
+
+
+Started DELETE "/admin/users/22" for ::1 at 2016-10-25 22:32:40 -0400
+Processing by Admin::UsersController#destroy as JSON
+  Parameters: {"id"=>"22"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 22], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 22]]
+  [1m[35m (3.8ms)[0m  [1m[35mCOMMIT[0m
+  Rendering admin/users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."first_name" DESC[0m
+  Rendered admin/users/index.html.erb within layouts/application (6.7ms)
+Started DELETE "/admin/users/22" for ::1 at 2016-10-25 22:32:40 -0400
+Processing by Admin::UsersController#destroy as HTML
+  Parameters: {"authenticity_token"=>"cS3nzq24R+NR6NRzESfKD3aRJYJrZSFOt938wJpTR71FmPNd5nSCUu8zOzABVCjFSqg3exPIciHTps+eNDa3KQ==", "id"=>"22"}
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mUser Load (2.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 22], ["LIMIT", 1]]
+Completed 404 Not Found in 7ms (ActiveRecord: 4.1ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=22):
+  
+app/controllers/admin/users_controller.rb:11:in `destroy'
+  Rendered layouts/_navigation.html.erb (1.0ms)
+Completed 200 OK in 160ms (Views: 148.8ms | ActiveRecord: 6.1ms)
+
+
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (8.0ms)
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.7ms)
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (56.3ms)
+Started GET "/admin/users" for ::1 at 2016-10-25 22:32:44 -0400
+Processing by Admin::UsersController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  Rendering admin/users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."first_name" DESC[0m
+  Rendered admin/users/index.html.erb within layouts/application (2.3ms)
+  Rendered layouts/_navigation.html.erb (1.4ms)
+Completed 200 OK in 23ms (Views: 19.2ms | ActiveRecord: 1.0ms)
+
+
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "jimmy1@juno.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Jimmy"], ["last_name", "T1"], ["email", "jimmy1@juno.com"], ["encrypted_password", "$2a$11$1aHKP8nEZV2DeXky94CrHeYRueQ0yXE4pQ12Gwabfali36NyPCd1."], ["created_at", 2016-10-26 02:32:48 UTC], ["updated_at", 2016-10-26 02:32:48 UTC]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "jimmy2@juno.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Jimmy"], ["last_name", "T2"], ["email", "jimmy2@juno.com"], ["encrypted_password", "$2a$11$TOyZcpfPhmtZVkQPXKpNVup2JMeJjrlNF3g2dZQ0c7MCrFMtkXhv2"], ["created_at", 2016-10-26 02:32:49 UTC], ["updated_at", 2016-10-26 02:32:49 UTC]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "jimmy3@juno.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Jimmy"], ["last_name", "T3"], ["email", "jimmy3@juno.com"], ["encrypted_password", "$2a$11$W8II3RSFErwEOPJiRKEcvOtxFDsGUEv2AhtCh.1XBTYyF/pAx7nxu"], ["created_at", 2016-10-26 02:32:52 UTC], ["updated_at", 2016-10-26 02:32:52 UTC]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/admin/users" for ::1 at 2016-10-25 22:35:12 -0400
+Processing by Admin::UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  Rendering admin/users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."first_name" DESC[0m
+  Rendered admin/users/index.html.erb within layouts/application (3.0ms)
+  Rendered layouts/_navigation.html.erb (0.9ms)
+Completed 200 OK in 33ms (Views: 18.2ms | ActiveRecord: 0.9ms)
+
+
+Started DELETE "/admin/users/27" for ::1 at 2016-10-25 22:35:13 -0400
+Processing by Admin::UsersController#destroy as JSON
+  Parameters: {"id"=>"27"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+Started DELETE "/admin/users/27" for ::1 at 2016-10-25 22:35:14 -0400
+Processing by Admin::UsersController#destroy as HTML
+  Parameters: {"authenticity_token"=>"7GwdUAT/ir7XGNX6dfDHGMORML5jX1BMqEXNxld775HY2QnDTzNPD2nDOrllgyXS/6giRxvyAyPMPv6Y+R4fBQ==", "id"=>"27"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mUser Load (3.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  [1m[35m (2.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (2.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 27]]
+  [1m[35m (5.5ms)[0m  [1m[35mCOMMIT[0m
+  Rendering admin/users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."first_name" DESC[0m
+  Rendered admin/users/index.html.erb within layouts/application (3.0ms)
+  Rendered layouts/_navigation.html.erb (1.5ms)
+Completed 200 OK in 6261ms (Views: 30.6ms | ActiveRecord: 14.6ms)
+
+
+Started DELETE "/admin/users/27" for ::1 at 2016-10-25 22:38:20 -0400
+Completed 401 Unauthorized in 202996ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/admin/users" for ::1 at 2016-10-25 22:38:51 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Admin::UsersController#index as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  Rendering admin/users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."first_name" DESC[0m
+  Rendered admin/users/index.html.erb within layouts/application (6.2ms)
+Started GET "/admin/users" for ::1 at 2016-10-25 22:38:51 -0400
+Processing by Admin::UsersController#index as HTML
+  [1m[36mUser Load (4.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  Rendering admin/users/index.html.erb within layouts/application
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."first_name" DESC[0m
+  Rendered admin/users/index.html.erb within layouts/application (3.8ms)
+  Rendered layouts/_navigation.html.erb (1.9ms)
+Completed 200 OK in 60ms (Views: 48.9ms | ActiveRecord: 5.5ms)
+
+
+  Rendered layouts/_navigation.html.erb (3.5ms)
+Completed 200 OK in 507ms (Views: 474.2ms | ActiveRecord: 5.0ms)
+
+
+Started GET "/admin/users" for ::1 at 2016-10-25 22:38:54 -0400
+Processing by Admin::UsersController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  Rendering admin/users/index.html.erb within layouts/application
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."first_name" DESC[0m
+  Rendered admin/users/index.html.erb within layouts/application (11.6ms)
+  Rendered layouts/_navigation.html.erb (2.4ms)
+Completed 200 OK in 44ms (Views: 38.5ms | ActiveRecord: 3.1ms)
+
+
+Started DELETE "/admin/users/26" for ::1 at 2016-10-25 22:38:58 -0400
+Processing by Admin::UsersController#destroy as JSON
+  Parameters: {"id"=>"26"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 26], ["LIMIT", 1]]
+  [1m[35m (0.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 26]]
+  [1m[35m (8.1ms)[0m  [1m[35mCOMMIT[0m
+  Rendering admin/users/index.html.erb within layouts/application
+Started DELETE "/admin/users/26" for ::1 at 2016-10-25 22:38:58 -0400
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."first_name" DESC[0m
+Processing by Admin::UsersController#destroy as HTML
+  Parameters: {"authenticity_token"=>"A4HqiAlo5SvvtObfVxl8aLmG11nnXkrQ1FcZ4IWv14A3NP4bQqQgmlFvCZxHap6ihb/FoJ/zGb+wLCq+K8onFA==", "id"=>"26"}
+  Rendered admin/users/index.html.erb within layouts/application (8.8ms)
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 26], ["LIMIT", 1]]
+Completed 404 Not Found in 48ms (ActiveRecord: 41.0ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=26):
+  
+app/controllers/admin/users_controller.rb:11:in `destroy'
+  Rendered layouts/_navigation.html.erb (1.4ms)
+Completed 200 OK in 445ms (Views: 422.2ms | ActiveRecord: 12.4ms)
+
+
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (6.4ms)
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (6.8ms)
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.8ms)
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (181.7ms)
+Started GET "/admin/users" for ::1 at 2016-10-25 22:39:15 -0400
+Processing by Admin::UsersController#index as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  Rendering admin/users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."first_name" DESC[0m
+  Rendered admin/users/index.html.erb within layouts/application (3.0ms)
+  Rendered layouts/_navigation.html.erb (3.9ms)
+Completed 200 OK in 179ms (Views: 174.6ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/admin/users" for ::1 at 2016-10-25 22:41:02 -0400
+Processing by Admin::UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  Rendering admin/users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."first_name" DESC[0m
+  Rendered admin/users/index.html.erb within layouts/application (3.4ms)
+  Rendered layouts/_navigation.html.erb (1.1ms)
+Completed 200 OK in 63ms (Views: 43.6ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/admin/users" for ::1 at 2016-10-25 22:41:03 -0400
+Processing by Admin::UsersController#index as HTML
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  Rendering admin/users/index.html.erb within layouts/application
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."first_name" DESC[0m
+  Rendered admin/users/index.html.erb within layouts/application (7.1ms)
+  Rendered layouts/_navigation.html.erb (7.3ms)
+Completed 200 OK in 120ms (Views: 112.9ms | ActiveRecord: 3.8ms)
+
+
+Started DELETE "/admin/users/25" for ::1 at 2016-10-25 22:41:06 -0400
+Processing by Admin::UsersController#destroy as JSON
+  Parameters: {"id"=>"25"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 25]]
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+Started DELETE "/admin/users/25" for ::1 at 2016-10-25 22:41:06 -0400
+No template found for Admin::UsersController#destroy, rendering head :no_content
+Processing by Admin::UsersController#destroy as HTML
+Completed 204 No Content in 267ms (ActiveRecord: 2.8ms)
+
+
+  Parameters: {"authenticity_token"=>"LC3wHNBZnQLFvWD1hhmBGFEoiZKgJoxEcFoV8liu4DIYmOSPm5VYs3tmj7aWamPSbRGba9iL3ysUISas9ssQpg==", "id"=>"25"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+Completed 404 Not Found in 7ms (ActiveRecord: 1.5ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=25):
+  
+app/controllers/admin/users_controller.rb:11:in `destroy'
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (7.0ms)
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (5.0ms)
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (84.3ms)
+Started GET "/admin/users" for ::1 at 2016-10-25 22:41:12 -0400
+Processing by Admin::UsersController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  Rendering admin/users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."first_name" DESC[0m
+  Rendered admin/users/index.html.erb within layouts/application (2.8ms)
+  Rendered layouts/_navigation.html.erb (2.1ms)
+Completed 200 OK in 37ms (Views: 33.2ms | ActiveRecord: 1.0ms)
+
+
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "jimmy3@juno.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Jimmy"], ["last_name", "T3"], ["email", "jimmy3@juno.com"], ["encrypted_password", "$2a$11$Gur2jT9SJIdYx7HSbsD2iuYKd2mRXmKSxYYtpPB1USO5rmNImQCgC"], ["created_at", 2016-10-26 02:41:35 UTC], ["updated_at", 2016-10-26 02:41:35 UTC]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "jimmy2@juno.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Jimmy"], ["last_name", "T2"], ["email", "jimmy2@juno.com"], ["encrypted_password", "$2a$11$LdlJTsf/EByUy8smxKanbeCa4xp/f0/2WDxVH9eQev6m.61lcyA0W"], ["created_at", 2016-10-26 02:41:36 UTC], ["updated_at", 2016-10-26 02:41:36 UTC]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "jimmy1@juno.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Jimmy"], ["last_name", "T1"], ["email", "jimmy1@juno.com"], ["encrypted_password", "$2a$11$2M09nTzl0CBVvDLNPpOQS.V4UGh3GTBSI9KWo3tRlPIf3yNwwJf0m"], ["created_at", 2016-10-26 02:41:39 UTC], ["updated_at", 2016-10-26 02:41:39 UTC]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/admin/users" for ::1 at 2016-10-25 22:46:06 -0400
+Processing by Admin::UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  Rendering admin/users/index.html.erb within layouts/application
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."first_name" DESC[0m
+  Rendered admin/users/index.html.erb within layouts/application (4.3ms)
+  Rendered layouts/_navigation.html.erb (1.6ms)
+Completed 200 OK in 38ms (Views: 24.3ms | ActiveRecord: 1.3ms)
+
+
+Started DELETE "/admin/users/30" for ::1 at 2016-10-25 22:46:08 -0400
+Processing by Admin::UsersController#destroy as JSON
+  Parameters: {"id"=>"30"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 30]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+Completed 204 No Content in 9ms (ActiveRecord: 3.6ms)
+
+
+Started DELETE "/admin/users/30" for ::1 at 2016-10-25 22:46:09 -0400
+Processing by Admin::UsersController#destroy as HTML
+  Parameters: {"authenticity_token"=>"AXuqKAHx4HIgIayGXZ3VjX/MYHY/fd0IxTmGvJtoR+s1zr67Sj0lw576Q8VN7jdHQ/Vyj0fQjmehQrXiNQ23fw==", "id"=>"30"}
+  [1m[36mUser Load (4.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 404 Not Found in 12ms (ActiveRecord: 5.5ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=30):
+  
+app/controllers/admin/users_controller.rb:11:in `destroy'
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (9.3ms)
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.2ms)
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (83.3ms)
+Started GET "/admin/users" for ::1 at 2016-10-25 22:46:58 -0400
+Processing by Admin::UsersController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  Rendering admin/users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."first_name" DESC[0m
+  Rendered admin/users/index.html.erb within layouts/application (6.8ms)
+  Rendered layouts/_navigation.html.erb (1.2ms)
+Completed 200 OK in 60ms (Views: 28.9ms | ActiveRecord: 7.7ms)
+
+
+Started DELETE "/admin/users/29" for ::1 at 2016-10-25 22:47:09 -0400
+Processing by Admin::UsersController#destroy as JSON
+  Parameters: {"id"=>"29"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+Started DELETE "/admin/users/29" for ::1 at 2016-10-25 22:47:09 -0400
+Processing by Admin::UsersController#destroy as HTML
+  Parameters: {"authenticity_token"=>"O88XRIslkvGvXNLEKdFkIOfRO9cOINjmC+dpNGXiS3UPegPXwOlXQBGHPYc5oobq2+gpLnaNi4lvnFpqy4e74Q==", "id"=>"29"}
+  [1m[36mUser Load (72.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mUser Load (2.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 29], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (2.5ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 29]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Completed 204 No Content in 49310ms (ActiveRecord: 6.9ms)
+
+
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 29], ["LIMIT", 1]]
+Completed 404 Not Found in 59215ms (ActiveRecord: 73.3ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=29):
+  
+app/controllers/admin/users_controller.rb:12:in `destroy'
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (5.0ms)
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.2ms)
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (64.2ms)
+Started GET "/admin/users" for ::1 at 2016-10-25 22:49:50 -0400
+Processing by Admin::UsersController#index as HTML
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  Rendering admin/users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."first_name" DESC[0m
+  Rendered admin/users/index.html.erb within layouts/application (2.9ms)
+  Rendered layouts/_navigation.html.erb (2.6ms)
+Completed 200 OK in 93ms (Views: 47.2ms | ActiveRecord: 5.8ms)
+
+
+Started DELETE "/admin/users/28" for ::1 at 2016-10-25 22:49:53 -0400
+Processing by Admin::UsersController#destroy as JSON
+  Parameters: {"id"=>"28"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+Started DELETE "/admin/users/28" for ::1 at 2016-10-25 22:49:53 -0400
+Processing by Admin::UsersController#destroy as HTML
+  Parameters: {"authenticity_token"=>"kkkhhxUXP9kBvHVGTsD/Tzi5oXopojwWyn1empwbsJ6m/DUUXtv6aL9nmgVesx2FBICzg1EPb3muBm3EMn5ACg==", "id"=>"28"}
+  [1m[36mUser Load (3.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "jimmy1@juno.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Jimmy"], ["last_name", "T1"], ["email", "jimmy1@juno.com"], ["encrypted_password", "$2a$11$LGBWyGx7gXrIqFEx9QCHpeM5.A7prdaGqX61EKhJpXmXa99BgqywO"], ["created_at", 2016-10-26 02:54:42 UTC], ["updated_at", 2016-10-26 02:54:42 UTC]]
+  [1m[35m (5.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "jimmy2@juno.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Jimmy"], ["last_name", "T2"], ["email", "jimmy2@juno.com"], ["encrypted_password", "$2a$11$98J15rZkCFJCH8hBBaJPK.V69J.PQvsLSweT8ocJakzSWMsMEFiea"], ["created_at", 2016-10-26 02:54:43 UTC], ["updated_at", 2016-10-26 02:54:43 UTC]]
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "jimmy3@juno.com"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+Started GET "/admin/users" for ::1 at 2016-10-25 22:54:49 -0400
+Processing by Admin::UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  Rendering admin/users/index.html.erb within layouts/application
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."first_name" DESC[0m
+  Rendered admin/users/index.html.erb within layouts/application (4.3ms)
+  Rendered layouts/_navigation.html.erb (0.9ms)
+Completed 200 OK in 268ms (Views: 263.3ms | ActiveRecord: 1.6ms)
+
+
+Started DELETE "/admin/users/32" for ::1 at 2016-10-25 22:55:03 -0400
+Completed 401 Unauthorized in 317893ms (ActiveRecord: 3.7ms)
+
+
+Completed 401 Unauthorized in 318000ms (ActiveRecord: 0.7ms)
+
+
+Started GET "/admin/users" for ::1 at 2016-10-25 22:55:27 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Admin::UsersController#index as HTML
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  Rendering admin/users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."first_name" DESC[0m
+  Rendered admin/users/index.html.erb within layouts/application (12.1ms)
+  Rendered layouts/_navigation.html.erb (1.3ms)
+Completed 200 OK in 543ms (Views: 407.1ms | ActiveRecord: 79.9ms)
+
+
+Started GET "/admin/users" for ::1 at 2016-10-25 22:55:32 -0400
+Processing by Admin::UsersController#index as HTML
+  [1m[36mUser Load (5.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  Rendering admin/users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."first_name" DESC[0m
+  Rendered admin/users/index.html.erb within layouts/application (13.8ms)
+  Rendered layouts/_navigation.html.erb (4.5ms)
+Completed 200 OK in 149ms (Views: 135.4ms | ActiveRecord: 6.4ms)
+
+
+Started DELETE "/admin/users/32" for ::1 at 2016-10-25 22:55:35 -0400
+Processing by Admin::UsersController#destroy as JSON
+  Parameters: {"id"=>"32"}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 32], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.4ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 32]]
+  [1m[35m (6.2ms)[0m  [1m[35mCOMMIT[0m
+Completed 204 No Content in 30ms (ActiveRecord: 10.5ms)
+
+
+Started DELETE "/admin/users/32" for ::1 at 2016-10-25 22:55:35 -0400
+Processing by Admin::UsersController#destroy as HTML
+  Parameters: {"authenticity_token"=>"dUSZRnfXV8qsEYbeRaZZLrl+4svd1EG1RxScTCnrl/ZB8Y3VPBuSexLKaZ1V1bvkhUfwMqV5Etojb68Sh45nYg==", "id"=>"32"}
+  [1m[36mUser Load (3.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 32], ["LIMIT", 1]]
+Completed 404 Not Found in 18ms (ActiveRecord: 4.4ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=32):
+  
+app/controllers/admin/users_controller.rb:11:in `destroy'
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (10.9ms)
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (15.5ms)
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (3.5ms)
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (212.3ms)
+Started GET "/admin/users" for ::1 at 2016-10-25 22:56:00 -0400
+Processing by Admin::UsersController#index as HTML
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  Rendering admin/users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."first_name" DESC[0m
+  Rendered admin/users/index.html.erb within layouts/application (2.2ms)
+  Rendered layouts/_navigation.html.erb (1.3ms)
+Completed 200 OK in 22ms (Views: 17.5ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/admin/users" for ::1 at 2016-10-25 22:56:35 -0400
+Processing by Admin::UsersController#index as HTML
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  Rendering admin/users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."first_name" DESC[0m
+  Rendered admin/users/index.html.erb within layouts/application (3.3ms)
+  Rendered layouts/_navigation.html.erb (1.3ms)
+Completed 200 OK in 113ms (Views: 105.5ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/admin/users" for ::1 at 2016-10-25 22:56:36 -0400
+Processing by Admin::UsersController#index as HTML
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  Rendering admin/users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."first_name" DESC[0m
+  Rendered admin/users/index.html.erb within layouts/application (3.6ms)
+  Rendered layouts/_navigation.html.erb (1.8ms)
+Completed 200 OK in 84ms (Views: 78.6ms | ActiveRecord: 2.0ms)
+
+
+Started DELETE "/admin/users/31" for ::1 at 2016-10-25 22:57:44 -0400
+Processing by Admin::UsersController#destroy as JSON
+  Parameters: {"id"=>"31"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 31], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 31]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+Completed 204 No Content in 11ms (ActiveRecord: 4.4ms)
+
+
+Started DELETE "/admin/users/31" for ::1 at 2016-10-25 22:57:44 -0400
+Processing by Admin::UsersController#destroy as HTML
+  Parameters: {"authenticity_token"=>"VqGzK4fB8iBcQcQ+m9ItGxZxefCbDmfrPX4tcdB8u8BiFKe4zA03keKaK32Loc/RKkhrCeOjNIRZBR4vfhlLVA==", "id"=>"31"}
+  [1m[36mUser Load (2.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 31], ["LIMIT", 1]]
+Completed 404 Not Found in 14ms (ActiveRecord: 3.9ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=31):
+  
+app/controllers/admin/users_controller.rb:11:in `destroy'
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (12.9ms)
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.1ms)
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.2ms)
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (64.9ms)
+Started GET "/admin/users" for ::1 at 2016-10-25 22:57:50 -0400
+Processing by Admin::UsersController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  Rendering admin/users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."first_name" DESC[0m
+  Rendered admin/users/index.html.erb within layouts/application (3.6ms)
+  Rendered layouts/_navigation.html.erb (1.0ms)
+Completed 200 OK in 111ms (Views: 108.0ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/admin/users" for ::1 at 2016-10-25 22:57:56 -0400
+Processing by Admin::UsersController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  Rendering admin/users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."first_name" DESC[0m
+  Rendered admin/users/index.html.erb within layouts/application (3.4ms)
+  Rendered layouts/_navigation.html.erb (1.5ms)
+Completed 200 OK in 28ms (Views: 22.8ms | ActiveRecord: 1.4ms)
+
+
+Started DELETE "/admin/users/28" for ::1 at 2016-10-25 22:58:10 -0400
+Processing by Admin::UsersController#destroy as JSON
+  Parameters: {"id"=>"28"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 28], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 28]]
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+Completed 204 No Content in 6ms (ActiveRecord: 2.7ms)
+
+
+Started DELETE "/admin/users/28" for ::1 at 2016-10-25 22:58:12 -0400
+Processing by Admin::UsersController#destroy as HTML
+  Parameters: {"authenticity_token"=>"qm6XIZ6jgNwHC8SF60V+A50cxuO8jFGn2ReKlSg0Xcae24Oy1W9FbbnQK8b7NpzJoSXUGsQhAsi9bLnLhlGtUg==", "id"=>"28"}
+  [1m[36mUser Load (4.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 28], ["LIMIT", 1]]
+Completed 404 Not Found in 10ms (ActiveRecord: 5.6ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=28):
+  
+app/controllers/admin/users_controller.rb:11:in `destroy'
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.8ms)
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.0ms)
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (56.7ms)
+Started GET "/admin/users" for ::1 at 2016-10-25 22:59:16 -0400
+  
+SyntaxError (/Users/micahbales/Dropbox/Documents/Git/metro-review-site/app/controllers/admin/users_controller.rb:15: syntax error, unexpected ':', expecting '}'
+      format.json { data: true }
+                         ^):
+  
+app/controllers/admin/users_controller.rb:15: syntax error, unexpected ':', expecting '}'
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.8ms)
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (47.4ms)
+Started GET "/admin/users" for ::1 at 2016-10-25 22:59:22 -0400
+  
+SyntaxError (/Users/micahbales/Dropbox/Documents/Git/metro-review-site/app/controllers/admin/users_controller.rb:15: syntax error, unexpected ':', expecting '}'
+      format.json { data: true }
+                         ^):
+  
+app/controllers/admin/users_controller.rb:15: syntax error, unexpected ':', expecting '}'
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (5.2ms)
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.3ms)
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (53.8ms)
+Started GET "/admin/users" for ::1 at 2016-10-25 23:00:30 -0400
+  
+SyntaxError (/Users/micahbales/Dropbox/Documents/Git/metro-review-site/app/controllers/admin/users_controller.rb:15: syntax error, unexpected tLABEL
+      format.json { render json: data: true }
+                                      ^):
+  
+app/controllers/admin/users_controller.rb:15: syntax error, unexpected tLABEL
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (9.7ms)
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (6.9ms)
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.3ms)
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (84.5ms)
+Started GET "/admin/users" for ::1 at 2016-10-25 23:01:57 -0400
+Processing by Admin::UsersController#index as HTML
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  Rendering admin/users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."first_name" DESC[0m
+  Rendered admin/users/index.html.erb within layouts/application (3.3ms)
+  Rendered layouts/_navigation.html.erb (2.3ms)
+Completed 200 OK in 72ms (Views: 39.4ms | ActiveRecord: 2.7ms)
+
+
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "jimmy3@juno.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Jimmy"], ["last_name", "T3"], ["email", "jimmy3@juno.com"], ["encrypted_password", "$2a$11$PImkDY2QDmR/gEXtix.1XOhj7a1dR.Z0MB98tnVkr3GXjHs6kSyd2"], ["created_at", 2016-10-26 03:02:04 UTC], ["updated_at", 2016-10-26 03:02:04 UTC]]
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "jimmy2@juno.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Jimmy"], ["last_name", "T2"], ["email", "jimmy2@juno.com"], ["encrypted_password", "$2a$11$nM2SqnPlNEWQNRoWYoZLwu9ZG1jGZuq3qPGVPsC6xlO0sBFTfCc/6"], ["created_at", 2016-10-26 03:02:06 UTC], ["updated_at", 2016-10-26 03:02:06 UTC]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "jimmy1@juno.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Jimmy"], ["last_name", "T1"], ["email", "jimmy1@juno.com"], ["encrypted_password", "$2a$11$knlCFZIOleIuJOY4OKRFuehFALzRbud6BERvcPlDyxov44NrbF1sW"], ["created_at", 2016-10-26 03:02:08 UTC], ["updated_at", 2016-10-26 03:02:08 UTC]]
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/admin/users" for ::1 at 2016-10-25 23:02:15 -0400
+Processing by Admin::UsersController#index as HTML
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  Rendering admin/users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."first_name" DESC[0m
+  Rendered admin/users/index.html.erb within layouts/application (3.8ms)
+  Rendered layouts/_navigation.html.erb (1.8ms)
+Completed 200 OK in 41ms (Views: 34.8ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/admin/users" for ::1 at 2016-10-25 23:04:12 -0400
+Processing by Admin::UsersController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  Rendering admin/users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."first_name" DESC[0m
+  Rendered admin/users/index.html.erb within layouts/application (2.2ms)
+  Rendered layouts/_navigation.html.erb (1.1ms)
+Completed 200 OK in 59ms (Views: 26.0ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/admin/users" for ::1 at 2016-10-25 23:04:14 -0400
+Processing by Admin::UsersController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  Rendering admin/users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."first_name" DESC[0m
+  Rendered admin/users/index.html.erb within layouts/application (4.3ms)
+  Rendered layouts/_navigation.html.erb (2.0ms)
+Completed 200 OK in 59ms (Views: 55.3ms | ActiveRecord: 1.3ms)
+
+
+Started DELETE "/admin/users/35" for ::1 at 2016-10-25 23:04:19 -0400
+Processing by Admin::UsersController#destroy as JSON
+  Parameters: {"id"=>"35"}
+  [1m[36mUser Load (6.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
+  [1m[35m (1.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 35]]
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 18ms (Views: 0.2ms | ActiveRecord: 11.5ms)
+
+
+Started DELETE "/admin/users/35" for ::1 at 2016-10-25 23:04:19 -0400
+Processing by Admin::UsersController#destroy as HTML
+  Parameters: {"authenticity_token"=>"8lWOd3MRkOeqMNRf8eQeHj9SJSfi0lKu+GeN66/tm9zG4JrkON1VVhTrOxzhl/zUA2s33pp/AcGcHL61AYhrSA==", "id"=>"35"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
+Completed 404 Not Found in 7ms (ActiveRecord: 1.2ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=35):
+  
+app/controllers/admin/users_controller.rb:11:in `destroy'
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (4.9ms)
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendering /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/micahbales/.gem/ruby/2.2.5/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (51.1ms)
+Started GET "/admin/users" for ::1 at 2016-10-25 23:06:09 -0400
+Processing by Admin::UsersController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  Rendering admin/users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."first_name" DESC[0m
+  Rendered admin/users/index.html.erb within layouts/application (3.7ms)
+  Rendered layouts/_navigation.html.erb (0.8ms)
+Completed 200 OK in 174ms (Views: 170.3ms | ActiveRecord: 1.6ms)
+
+
+Started DELETE "/admin/users/34" for ::1 at 2016-10-25 23:06:12 -0400
+Processing by Admin::UsersController#destroy as JSON
+  Parameters: {"id"=>"34"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 34], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 34]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 10ms (Views: 0.2ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/admin/users" for ::1 at 2016-10-25 23:09:14 -0400
+Processing by Admin::UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  Rendering admin/users/index.html.erb within layouts/application
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."first_name" DESC[0m
+  Rendered admin/users/index.html.erb within layouts/application (4.4ms)
+  Rendered layouts/_navigation.html.erb (4.7ms)
+Completed 200 OK in 109ms (Views: 104.9ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/admin/users" for ::1 at 2016-10-25 23:09:36 -0400
+Processing by Admin::UsersController#index as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  Rendering admin/users/index.html.erb within layouts/application
+  [1m[36mUser Load (5.1ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."first_name" DESC[0m
+  Rendered admin/users/index.html.erb within layouts/application (7.5ms)
+  Rendered layouts/_navigation.html.erb (31.7ms)
+Completed 200 OK in 228ms (Views: 218.4ms | ActiveRecord: 6.0ms)
+
+
+Started DELETE "/admin/users/33" for ::1 at 2016-10-25 23:09:40 -0400
+Processing by Admin::UsersController#destroy as JSON
+  Parameters: {"id"=>"33"}
+  [1m[36mUser Load (6.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 33], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 33]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 14ms (Views: 0.5ms | ActiveRecord: 8.0ms)
+
+
+Started GET "/admin/users" for ::1 at 2016-10-25 23:10:33 -0400
+Processing by Admin::UsersController#index as HTML
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  Rendering admin/users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."first_name" DESC[0m
+  Rendered admin/users/index.html.erb within layouts/application (4.8ms)
+  Rendered layouts/_navigation.html.erb (1.6ms)
+Completed 200 OK in 47ms (Views: 42.8ms | ActiveRecord: 2.2ms)
+
+
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "jimmy1@juno.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Jimmy"], ["last_name", "T1"], ["email", "jimmy1@juno.com"], ["encrypted_password", "$2a$11$Mmm9h/ZGiBa6nZREyC7OQe4ay39.8MGp8HS9cYJdGx0knA6tX2d1S"], ["created_at", 2016-10-26 03:10:47 UTC], ["updated_at", 2016-10-26 03:10:47 UTC]]
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "jimmy2@juno.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Jimmy"], ["last_name", "T2"], ["email", "jimmy2@juno.com"], ["encrypted_password", "$2a$11$s5mJW5M/G47ouc9bSBaD1uwIrl5s1s2/.wCRV/zMH6cbMXy2O7t9y"], ["created_at", 2016-10-26 03:10:48 UTC], ["updated_at", 2016-10-26 03:10:48 UTC]]
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "jimmy3@juno.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Jimmy"], ["last_name", "T3"], ["email", "jimmy3@juno.com"], ["encrypted_password", "$2a$11$7aHvi8dHF.9cbKb9iHC3W.5tjIhiy76cjeN5NtHFktXobqrjHUrCu"], ["created_at", 2016-10-26 03:10:50 UTC], ["updated_at", 2016-10-26 03:10:50 UTC]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/admin/users" for ::1 at 2016-10-25 23:10:52 -0400
+Processing by Admin::UsersController#index as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  Rendering admin/users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."first_name" DESC[0m
+  Rendered admin/users/index.html.erb within layouts/application (4.7ms)
+  Rendered layouts/_navigation.html.erb (2.1ms)
+Completed 200 OK in 58ms (Views: 51.3ms | ActiveRecord: 1.9ms)
+
+
+Started DELETE "/admin/users/38" for ::1 at 2016-10-25 23:10:56 -0400
+Processing by Admin::UsersController#destroy as JSON
+  Parameters: {"id"=>"38"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 38], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 38]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 7ms (Views: 0.1ms | ActiveRecord: 2.6ms)
+
+
+Started DELETE "/admin/users/37" for ::1 at 2016-10-25 23:10:59 -0400
+Processing by Admin::UsersController#destroy as JSON
+  Parameters: {"id"=>"37"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 37], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 37]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 6ms (Views: 0.3ms | ActiveRecord: 2.4ms)
+
+
+Started DELETE "/admin/users/36" for ::1 at 2016-10-25 23:10:59 -0400
+Processing by Admin::UsersController#destroy as JSON
+  Parameters: {"id"=>"36"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 36], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 36]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 5ms (Views: 0.3ms | ActiveRecord: 1.6ms)
+
+
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "jimmy3@juno.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Jimmy"], ["last_name", "T3"], ["email", "jimmy3@juno.com"], ["encrypted_password", "$2a$11$9SU5zX2d3JSGgpG0bQvuV.Od2SBhTsdYxRN6Mk13FzymNikt8W.0W"], ["created_at", 2016-10-26 03:22:53 UTC], ["updated_at", 2016-10-26 03:22:53 UTC]]
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "jimmy2@juno.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Jimmy"], ["last_name", "T2"], ["email", "jimmy2@juno.com"], ["encrypted_password", "$2a$11$ww3CnhR2o.A49DbR9nXqdOetE3ZixUKX5KAtw6.Znl.XgF8Siq3oa"], ["created_at", 2016-10-26 03:22:54 UTC], ["updated_at", 2016-10-26 03:22:54 UTC]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "jimmy1@juno.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Jimmy"], ["last_name", "T1"], ["email", "jimmy1@juno.com"], ["encrypted_password", "$2a$11$eWpBYq559sS6dMUURI.Wwu7dch7v0m.nKf7HR/yR.he3znGP2Onye"], ["created_at", 2016-10-26 03:22:55 UTC], ["updated_at", 2016-10-26 03:22:55 UTC]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/admin/users" for ::1 at 2016-10-25 23:23:00 -0400
+Processing by Admin::UsersController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  Rendering admin/users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."first_name" DESC[0m
+  Rendered admin/users/index.html.erb within layouts/application (2.3ms)
+  Rendered layouts/_navigation.html.erb (1.2ms)
+Completed 200 OK in 65ms (Views: 62.2ms | ActiveRecord: 0.9ms)
+
+
+Started DELETE "/admin/users/41" for ::1 at 2016-10-25 23:23:02 -0400
+Processing by Admin::UsersController#destroy as JSON
+  Parameters: {"id"=>"41"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 41], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 41]]
+  [1m[35m (6.1ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 12ms (Views: 0.2ms | ActiveRecord: 7.7ms)
+
+
+Started DELETE "/admin/users/40" for ::1 at 2016-10-25 23:23:09 -0400
+Processing by Admin::UsersController#destroy as JSON
+  Parameters: {"id"=>"40"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 40], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 40]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 5ms (Views: 0.1ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/admin/users" for ::1 at 2016-10-25 23:23:11 -0400
+Processing by Admin::UsersController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  Rendering admin/users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."first_name" DESC[0m
+  Rendered admin/users/index.html.erb within layouts/application (2.2ms)
+  Rendered layouts/_navigation.html.erb (0.6ms)
+Completed 200 OK in 17ms (Views: 14.4ms | ActiveRecord: 0.9ms)
+
+
+Started DELETE "/admin/users/39" for ::1 at 2016-10-25 23:23:12 -0400
+Processing by Admin::UsersController#destroy as JSON
+  Parameters: {"id"=>"39"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 39], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 39]]
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 6ms (Views: 0.1ms | ActiveRecord: 2.6ms)
+
+
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "jimmy1@juno.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Jimmy"], ["last_name", "T1"], ["email", "jimmy1@juno.com"], ["encrypted_password", "$2a$11$/RCNZlt96zrdpO2/4M3ZsOpaiasdCS7b0K8ZDDdmrF2zgobagGaVS"], ["created_at", 2016-10-26 03:23:39 UTC], ["updated_at", 2016-10-26 03:23:39 UTC]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "jimmy2@juno.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Jimmy"], ["last_name", "T2"], ["email", "jimmy2@juno.com"], ["encrypted_password", "$2a$11$6sWlOSp3CUhGa9WYfLRRhOoY27sPIKzY33b6cZJC0BC2Wdwnxm2XO"], ["created_at", 2016-10-26 03:23:40 UTC], ["updated_at", 2016-10-26 03:23:40 UTC]]
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "jimmy3@juno.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Jimmy"], ["last_name", "T3"], ["email", "jimmy3@juno.com"], ["encrypted_password", "$2a$11$9r3SXzof6lz4oGM/vtqOk.oVkZTbG5d08EcBkodQiD3gZCDMLXi0m"], ["created_at", 2016-10-26 03:23:41 UTC], ["updated_at", 2016-10-26 03:23:41 UTC]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/admin/users" for ::1 at 2016-10-25 23:25:43 -0400
+Processing by Admin::UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  Rendering admin/users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."first_name" DESC[0m
+  Rendered admin/users/index.html.erb within layouts/application (2.1ms)
+  Rendered layouts/_navigation.html.erb (0.8ms)
+Completed 200 OK in 19ms (Views: 16.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/admin/users" for ::1 at 2016-10-25 23:27:39 -0400
+Processing by Admin::UsersController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  Rendering admin/users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."first_name" DESC[0m
+  Rendered admin/users/index.html.erb within layouts/application (2.1ms)
+  Rendered layouts/_navigation.html.erb (1.2ms)
+Completed 200 OK in 64ms (Views: 60.9ms | ActiveRecord: 1.0ms)
+
+
+Started DELETE "/admin/users/44" for ::1 at 2016-10-25 23:27:44 -0400
+Processing by Admin::UsersController#destroy as JSON
+  Parameters: {"id"=>"44"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 44], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 44]]
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 6ms (Views: 0.1ms | ActiveRecord: 2.6ms)
+
+

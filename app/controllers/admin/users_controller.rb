@@ -10,6 +10,9 @@ class Admin::UsersController < ApplicationController
     @users = User.all
     @user = User.find(params[:id])
     @user.destroy
-    render :index
+    respond_to do |format|
+      format.html { render :index }
+      format.json { render json: { data: "yooooo" } }
+    end
   end
 end
